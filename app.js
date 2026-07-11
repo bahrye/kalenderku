@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Fetch Last Updated Metadata
+// Fetch Last Updated Metadata from D1 via API
 async function fetchMetadata() {
   const updateElement = document.getElementById("last-update-time");
   const checkElement = document.getElementById("last-check-time");
@@ -81,7 +81,7 @@ async function fetchMetadata() {
   };
 
   try {
-    const res = await fetch("/data/metadata.json");
+    const res = await fetch("/api/metadata");
     if (!res.ok) throw new Error("Gagal mengambil metadata");
     const data = await res.json();
     

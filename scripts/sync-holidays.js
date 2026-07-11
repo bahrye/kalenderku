@@ -7,6 +7,7 @@ const maxYear = new Date().getFullYear() + 2;
 
 const dataDir = path.join(__dirname, '..', 'public', 'data');
 const sqlFile = path.join(__dirname, 'temp_sync.sql');
+const metadataSqlFile = path.join(__dirname, 'temp_metadata.sql');
 
 // Make sure output directories exist
 if (!fs.existsSync(dataDir)) {
@@ -61,7 +62,7 @@ async function run() {
         sqlContent += `-- Sync holidays for year ${year}\n`;
         sqlContent += `DELETE FROM holidays WHERE date LIKE '${year}-%';\n`;
         if (normalizedData.length > 0) {
-          const values = normalizedData.map(h => 
+          const values = normalizedData.map(h =>
             `('${h.date}', '${h.name.replace(/'/g, "''")}', ${h.is_leave_together ? 1 : 0})`
           ).join(',\n  ');
           sqlContent += `INSERT INTO holidays (date, name, is_leave_together) VALUES \n  ${values};\n\n`;
@@ -82,21 +83,19 @@ async function run() {
     console.log("No database updates needed.");
   }
   
-  // Update metadata
-  const metadataPath = path.join(dataDir, 'metadata.json');
-  let metadata = {};
-  if (fs.existsSync(metadataPath)) {
-    try {
-      metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-    } catch (e) {}
+  // Always write metadata SQL (lastChecked = now, lastUpdated only if changed)
+  const now = new Date().toISOString();
+  let metadataSql = `-- Update metadata\n`;
+  metadataSql += `INSERT INTO metadata (key, value) VALUES ('lastChecked', '${now}')\n`;
+  metadataSql += `  ON CONFLICT(key) DO UPDATE SET value = excluded.value;\n`;
+
+  if (hasChanges) {
+    metadataSql += `INSERT INTO metadata (key, value) VALUES ('lastUpdated', '${now}')\n`;
+    metadataSql += `  ON CONFLICT(key) DO UPDATE SET value = excluded.value;\n`;
   }
-  
-  metadata.lastChecked = new Date().toISOString();
-  if (hasChanges || !metadata.lastUpdated) {
-    metadata.lastUpdated = metadata.lastChecked;
-  }
-  
-  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
+
+  fs.writeFileSync(metadataSqlFile, metadataSql, 'utf8');
+  console.log(`Generated metadata SQL in scripts/temp_metadata.sql`);
 
   console.log("Holidays sync run completed.");
 }
