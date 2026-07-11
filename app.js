@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Dynamic year dropdown generator
 function populateYearDropdown() {
   selectYear.innerHTML = "";
-  for (let yr = minYear; yr <= maxYear; yr++) {
+  for (let yr = maxYear; yr >= minYear; yr--) {
     const option = document.createElement("option");
     option.value = yr;
     option.innerText = yr;
