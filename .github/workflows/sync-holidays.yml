@@ -45,13 +45,12 @@ jobs:
         CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-    - name: Commit and Push local JSON changes
-      if: hashFiles('scripts/temp_sync.sql') != ''
+    - name: Commit and Push JSON + metadata changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add public/data/
-        git commit -m "Auto-update holidays JSON files"
+        git diff --cached --quiet || git commit -m "Auto-update holidays JSON & metadata"
         git push
       shell: bash
 
