@@ -81,6 +81,10 @@ async function run() {
   } else {
     console.log("No database updates needed.");
   }
+  
+  // Write metadata with last update time
+  const metadata = { lastUpdated: new Date().toISOString() };
+  fs.writeFileSync(path.join(dataDir, 'metadata.json'), JSON.stringify(metadata, null, 2), 'utf8');
 
   console.log("Holidays sync run completed.");
 }

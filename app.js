@@ -53,11 +53,36 @@ document.addEventListener("DOMContentLoaded", () => {
   selectMonth.value = currentMonth;
   selectYear.value = currentYear;
 
+  fetchMetadata();
+
   fetchHolidays().then(() => {
     renderApp();
     setupEventListeners();
   });
 });
+
+// Fetch Last Updated Metadata
+async function fetchMetadata() {
+  const timeElement = document.getElementById("last-update-time");
+  if (!timeElement) return;
+  
+  try {
+    const res = await fetch("/data/metadata.json");
+    if (!res.ok) throw new Error("Gagal mengambil metadata");
+    const data = await res.json();
+    
+    if (data.lastUpdated) {
+      const date = new Date(data.lastUpdated);
+      const formatted = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+      timeElement.innerText = formatted;
+    } else {
+      timeElement.innerText = "Tidak tersedia";
+    }
+  } catch (err) {
+    console.warn("Could not load metadata:", err);
+    timeElement.innerText = "Tidak tersedia";
+  }
+}
 
 // Dynamic year dropdown generator
 function populateYearDropdown() {
@@ -242,6 +267,16 @@ function renderApp() {
   renderCalendarGrid();
   updateDetailCard();
   updateHolidaysList();
+  
+  // Update API URL example to use current year
+  const apiUrlText = document.getElementById("api-url-text");
+  const apiUrlLink = document.getElementById("api-url-link");
+  if (apiUrlText && apiUrlLink) {
+    const url = `https://kalender-id.pages.dev/api/holidays?year=${currentYear}`;
+    apiUrlText.innerText = url;
+    apiUrlLink.href = url;
+  }
+  
   lucide.createIcons();
 }
 
