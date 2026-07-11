@@ -73,6 +73,8 @@ function populateYearDropdown() {
 // Theme Configuration
 function setupTheme() {
   const themeToggle = document.getElementById("theme-toggle");
+  
+  // Fetch icons initially to set correct state before Lucide renders
   const darkIcon = document.getElementById("theme-toggle-dark-icon");
   const lightIcon = document.getElementById("theme-toggle-light-icon");
   
@@ -88,16 +90,20 @@ function setupTheme() {
   }
 
   themeToggle.addEventListener("click", () => {
+    // Re-fetch icons because lucide.createIcons() replaces the original <i> tags with <svg> tags
+    const currentDarkIcon = document.getElementById("theme-toggle-dark-icon");
+    const currentLightIcon = document.getElementById("theme-toggle-light-icon");
+
     if (document.documentElement.classList.contains("dark")) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      darkIcon.classList.add("hidden");
-      lightIcon.classList.remove("hidden");
+      if (currentDarkIcon) currentDarkIcon.classList.add("hidden");
+      if (currentLightIcon) currentLightIcon.classList.remove("hidden");
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      darkIcon.classList.remove("hidden");
-      lightIcon.classList.add("hidden");
+      if (currentDarkIcon) currentDarkIcon.classList.remove("hidden");
+      if (currentLightIcon) currentLightIcon.classList.add("hidden");
     }
   });
 }
