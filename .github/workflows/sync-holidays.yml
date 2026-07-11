@@ -44,7 +44,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/data/
-          git commit -m "Auto-update holidays JSON files [skip ci]"
+          git commit -m "Auto-update holidays JSON files"
           git push
         else
           echo "No local JSON changes to commit."
