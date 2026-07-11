@@ -254,8 +254,9 @@ function renderCalendarGrid() {
     const dayOfWeek = currentDate.getDay(); // 0 = Minggu, 6 = Sabtu
     const dateString = formatDateString(currentDate);
 
-    // Find if it's a holiday
-    const holiday = holidays.find(h => h.date === dateString);
+    // Find all holidays for this date
+    const dayHolidays = holidays.filter(h => h.date === dateString);
+    const holiday = dayHolidays[0];
 
     const cell = document.createElement("button");
     cell.type = "button";
@@ -327,12 +328,12 @@ function renderCalendarGrid() {
       renderApp();
 
       // If on mobile and it is a holiday, show tooltip on the newly selected cell
-      if (window.innerWidth < 1024 && holiday) {
+      if (window.innerWidth < 1024 && dayHolidays.length > 0) {
         // Prevent click from propagating to document listener immediately
         e.stopPropagation();
         const selectedCell = document.getElementById("selected-date-cell");
         if (selectedCell) {
-          showTooltip(selectedCell, holiday);
+          showTooltip(selectedCell, dayHolidays);
         }
       }
     });
@@ -550,31 +551,47 @@ function createTooltip() {
   });
 }
 
-function showTooltip(cell, holiday) {
+function showTooltip(cell, dayHolidays) {
   createTooltip();
   
-  const isLeave = holiday.is_leave_together;
+  if (!dayHolidays || dayHolidays.length === 0) return;
 
-  // Set visual theme based on Cuti Bersama vs National Holiday
-  if (isLeave) {
-    tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-emerald-500/20 bg-emerald-900/95 dark:bg-emerald-950/95 transition-all duration-150 ease-out pointer-events-auto";
-    tooltipEl.innerHTML = `
-      <div class="flex flex-col space-y-2">
-        <span class="w-fit text-[9px] font-extrabold uppercase tracking-wider bg-emerald-800 dark:bg-emerald-900 px-1.5 py-0.5 rounded text-emerald-100">Cuti Bersama</span>
+  // Let's generate HTML for all holidays
+  let contentHtml = `<div class="flex flex-col space-y-3">`;
+  
+  dayHolidays.forEach((holiday, index) => {
+    const isLeave = holiday.is_leave_together;
+    const badgeText = isLeave ? "Cuti Bersama" : "Libur Nasional";
+    const badgeClass = isLeave 
+      ? "bg-emerald-800 dark:bg-emerald-900 text-emerald-100" 
+      : "bg-rose-800 dark:bg-rose-900 text-rose-100";
+    
+    // Add border top if it's the second or subsequent holiday
+    const borderClass = index > 0 ? "border-t border-white/20 pt-2.5" : "";
+
+    contentHtml += `
+      <div class="flex flex-col space-y-1.5 ${borderClass}">
+        <span class="w-fit text-[9px] font-extrabold uppercase tracking-wider ${badgeClass} px-1.5 py-0.5 rounded">${badgeText}</span>
         <p class="font-bold leading-snug text-white">${holiday.name}</p>
-        <p class="text-[10px] text-emerald-200">${formatTooltipDate(holiday.date)}</p>
       </div>
     `;
-  } else {
+  });
+
+  // Add the date at the bottom
+  contentHtml += `
+      <p class="text-[10px] text-slate-300 dark:text-slate-400 border-t border-white/10 pt-2 mt-1">${formatTooltipDate(dayHolidays[0].date)}</p>
+    </div>
+  `;
+
+  // Set visual theme based on whether there's any national holiday
+  const hasNationalHoliday = dayHolidays.some(h => !h.is_leave_together);
+  if (hasNationalHoliday) {
     tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-rose-500/20 bg-rose-900/95 dark:bg-rose-950/95 transition-all duration-150 ease-out pointer-events-auto";
-    tooltipEl.innerHTML = `
-      <div class="flex flex-col space-y-2">
-        <span class="w-fit text-[9px] font-extrabold uppercase tracking-wider bg-rose-800 dark:bg-rose-900 px-1.5 py-0.5 rounded text-rose-100">Libur Nasional</span>
-        <p class="font-bold leading-snug text-white">${holiday.name}</p>
-        <p class="text-[10px] text-rose-200">${formatTooltipDate(holiday.date)}</p>
-      </div>
-    `;
+  } else {
+    tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-emerald-500/20 bg-emerald-900/95 dark:bg-emerald-950/95 transition-all duration-150 ease-out pointer-events-auto";
   }
+
+  tooltipEl.innerHTML = contentHtml;
 
   // Position the tooltip centered relative to the cell
   const buttonRect = cell.getBoundingClientRect();
