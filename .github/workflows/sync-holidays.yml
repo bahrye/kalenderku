@@ -37,6 +37,7 @@ jobs:
         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
     - name: Deploy to Cloudflare Pages
+      if: hashFiles('scripts/temp_sync.sql') != ''
       run: |
         chmod +x node_modules/.bin/wrangler
         npx wrangler pages deploy . --project-name=kalender-id --branch production --commit-message "Auto-update holidays data"
@@ -45,17 +46,13 @@ jobs:
         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
     - name: Commit and Push local JSON changes
+      if: hashFiles('scripts/temp_sync.sql') != ''
       run: |
-        # Only run git commit if there are changes under public/data/
-        if [[ -n $(git status --porcelain public/data/) ]]; then
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add public/data/
-          git commit -m "Auto-update holidays JSON files"
-          git push
-        else
-          echo "No local JSON changes to commit."
-        fi
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add public/data/
+        git commit -m "Auto-update holidays JSON files"
+        git push
       shell: bash
 
     - name: Clean up temporary files
