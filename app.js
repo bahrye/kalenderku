@@ -48,11 +48,12 @@ const holidayCountBadge = document.getElementById("holiday-count-badge");
 document.addEventListener("DOMContentLoaded", () => {
   setupTheme();
   populateYearDropdown();
-  fetchHolidays().then(() => {
-    // Sync dropdown options initially
-    selectMonth.value = currentMonth;
-    selectYear.value = currentYear;
+  
+  // Sync dropdown options initially (before fetching) to prevent "blink to 2011"
+  selectMonth.value = currentMonth;
+  selectYear.value = currentYear;
 
+  fetchHolidays().then(() => {
     renderApp();
     setupEventListeners();
   });
@@ -75,15 +76,13 @@ function setupTheme() {
   const darkIcon = document.getElementById("theme-toggle-dark-icon");
   const lightIcon = document.getElementById("theme-toggle-light-icon");
   
-  const isDark = localStorage.getItem("theme") === "dark" || 
-                 (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  // Use theme class pre-applied by inline head script
+  const isDark = document.documentElement.classList.contains("dark");
 
   if (isDark) {
-    document.documentElement.classList.add("dark");
     darkIcon.classList.remove("hidden");
     lightIcon.classList.add("hidden");
   } else {
-    document.documentElement.classList.remove("dark");
     darkIcon.classList.add("hidden");
     lightIcon.classList.remove("hidden");
   }

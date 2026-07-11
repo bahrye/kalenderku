@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "wrangler pages dev . --port 8788 --compatibility-date=2026-07-08",
-    "deploy": "wrangler pages deploy . --project-name=kalender-id"
+    "deploy": "wrangler pages deploy . --project-name=kalender-id --branch production"
   },
   "devDependencies": {
     "wrangler": "^3.107.0"

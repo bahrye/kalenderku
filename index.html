@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Prevent theme flash by applying the theme class before page render
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalenderku - Kalender Indonesia Up-to-Date</title>
   <meta name="description" content="Kalender digital Indonesia interaktif dengan daftar hari libur nasional dan cuti bersama terlengkap tahun 2011-2028.">
@@ -112,7 +120,7 @@
           </button>
           
           <h2 id="current-month-year" class="text-lg font-semibold min-w-[150px] text-center text-slate-800 dark:text-white px-2">
-            Desember 2026
+            Juli 2026
           </h2>
           
           <button id="btn-next" class="p-2 rounded-xl border border-slate-200 hover:border-slate-300 bg-white dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:scale-105 active:scale-95 transition-transform" aria-label="Bulan Selanjutnya">
@@ -131,7 +139,7 @@
               <option value="3">April</option>
               <option value="4">Mei</option>
               <option value="5">Juni</option>
-              <option value="6">Juli</option>
+              <option value="6" selected>Juli</option>
               <option value="7">Agustus</option>
               <option value="8">September</option>
               <option value="9">Oktober</option>
@@ -146,7 +154,7 @@
           <!-- Year Dropdown -->
           <div class="relative flex-grow md:flex-initial">
             <select id="select-year" class="w-full md:w-28 appearance-none bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm cursor-pointer">
-              <!-- Dynamically generated in app.js -->
+              <option value="2026" selected>2026</option>
             </select>
             <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
               <i data-lucide="chevron-down" class="w-4 h-4"></i>
