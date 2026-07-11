@@ -82,9 +82,21 @@ async function run() {
     console.log("No database updates needed.");
   }
   
-  // Write metadata with last update time
-  const metadata = { lastUpdated: new Date().toISOString() };
-  fs.writeFileSync(path.join(dataDir, 'metadata.json'), JSON.stringify(metadata, null, 2), 'utf8');
+  // Update metadata
+  const metadataPath = path.join(dataDir, 'metadata.json');
+  let metadata = {};
+  if (fs.existsSync(metadataPath)) {
+    try {
+      metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+    } catch (e) {}
+  }
+  
+  metadata.lastChecked = new Date().toISOString();
+  if (hasChanges || !metadata.lastUpdated) {
+    metadata.lastUpdated = metadata.lastChecked;
+  }
+  
+  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
 
   console.log("Holidays sync run completed.");
 }

@@ -63,24 +63,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Fetch Last Updated Metadata
 async function fetchMetadata() {
-  const timeElement = document.getElementById("last-update-time");
-  if (!timeElement) return;
+  const updateElement = document.getElementById("last-update-time");
+  const checkElement = document.getElementById("last-check-time");
   
+  const formatWIB = (isoString) => {
+    try {
+      const d = new Date(isoString);
+      const s = new Intl.DateTimeFormat('id-ID', {
+        year: 'numeric', month: 'long', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        timeZoneName: 'short', timeZone: 'Asia/Jakarta'
+      }).format(d);
+      return s.replace(' pukul ', ' ').replace(/\./g, ':');
+    } catch(e) {
+      return "Format tidak valid";
+    }
+  };
+
   try {
     const res = await fetch("/data/metadata.json");
     if (!res.ok) throw new Error("Gagal mengambil metadata");
     const data = await res.json();
     
-    if (data.lastUpdated) {
-      const date = new Date(data.lastUpdated);
-      const formatted = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-      timeElement.innerText = formatted;
-    } else {
-      timeElement.innerText = "Tidak tersedia";
+    if (updateElement) {
+      updateElement.innerText = data.lastUpdated ? formatWIB(data.lastUpdated) : "Tidak tersedia";
+    }
+    if (checkElement) {
+      checkElement.innerText = data.lastChecked ? formatWIB(data.lastChecked) : "Tidak tersedia";
     }
   } catch (err) {
     console.warn("Could not load metadata:", err);
-    timeElement.innerText = "Tidak tersedia";
+    if (updateElement) updateElement.innerText = "Tidak tersedia";
+    if (checkElement) checkElement.innerText = "Tidak tersedia";
   }
 }
 
