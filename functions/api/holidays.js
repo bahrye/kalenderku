@@ -43,11 +43,13 @@ export async function onRequest(context) {
     ).bind(`${year}-%`).all();
 
     if (!results || results.length === 0) {
-      return new Response(JSON.stringify({ error: `No holidays found for year ${year}` }), {
-        status: 404,
+      return new Response(JSON.stringify([]), {
+        status: 200,
         headers: { 
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "*",
+          "Cache-Control": "public, max-age=604800, s-maxage=2592000", // Browser: 7 days, Edge: 30 days
+          "X-Cache": "MISS"
         }
       });
     }
