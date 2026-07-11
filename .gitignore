@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+
+# Cloudflare Wrangler directories
+.wrangler/
+.cache/
+wrangler-dist/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Temporary files and build artifacts
+dist/
+build/
+*.log
+scripts/temp_sync.sql
+
+# OS-specific files
+.DS_Store
+Thumbs.db
