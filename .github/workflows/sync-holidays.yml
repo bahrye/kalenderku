@@ -37,6 +37,14 @@ jobs:
         CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
+    - name: Deploy to Cloudflare Pages
+      run: |
+        chmod +x node_modules/.bin/wrangler
+        npx wrangler pages deploy . --project-name=kalender-id --branch production
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
     - name: Commit and Push local JSON changes
       run: |
         # Only run git commit if there are changes under public/data/
