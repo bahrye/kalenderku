@@ -110,21 +110,21 @@ async function fetchHolidays(year) {
     return;
   }
 
-  // Try fetching from Cloudflare KV (via Pages Function)
+  // Try fetching from Cloudflare D1 Database (via Pages Function)
   try {
     const response = await fetch(`/api/holidays?year=${targetYear}`);
-    if (!response.ok) throw new Error("Gagal memuat dari KV");
+    if (!response.ok) throw new Error("Gagal memuat dari D1");
     const data = await response.json();
     
     if (Array.isArray(data)) {
       holidaysCache[targetYear] = data;
       holidays = data;
-      console.log(`Successfully loaded holidays for year ${targetYear} from Cloudflare KV.`);
+      console.log(`Successfully loaded holidays for year ${targetYear} from Cloudflare D1.`);
       return;
     }
-    throw new Error("Format data KV tidak sesuai");
+    throw new Error("Format data D1 tidak sesuai");
   } catch (apiError) {
-    console.warn(`Gagal memuat KV untuk tahun ${targetYear}, mencoba fallback ke data lokal:`, apiError);
+    console.warn(`Gagal memuat D1 untuk tahun ${targetYear}, mencoba fallback ke data lokal:`, apiError);
     
     // Fallback to local yearly JSON file
     try {
@@ -135,7 +135,7 @@ async function fetchHolidays(year) {
       holidays = localData;
       console.log(`Successfully loaded holidays for year ${targetYear} from local fallback.`);
     } catch (localError) {
-      console.error(`Gagal memuat data hari libur lokal maupun KV untuk tahun ${targetYear}:`, localError);
+      console.error(`Gagal memuat data hari libur lokal maupun D1 untuk tahun ${targetYear}:`, localError);
       holidaysCache[targetYear] = [];
       holidays = [];
     }
