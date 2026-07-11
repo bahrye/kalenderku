@@ -12,7 +12,7 @@
   {
     "date": "2026-02-16",
     "name": "Cuti Bersama Tahun Baru Imlek 2577 Kongzili",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2026-02-17",
@@ -21,42 +21,42 @@
   },
   {
     "date": "2026-03-18",
-    "name": "Cuti Bersama Hari Suci Nyepi (Tahun Baru Saka 1948)",
-    "is_leave_together": true
+    "name": "Cuti Bersama Hari Suci Nyepi Tahun Baru Saka 1948",
+    "is_leave_together": false
   },
   {
     "date": "2026-03-19",
-    "name": "Hari Suci Nyepi (Tahun Baru Saka 1948)",
+    "name": "Hari Suci Nyepi Tahun Baru Saka 1948",
     "is_leave_together": false
   },
   {
     "date": "2026-03-20",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1447 Hijriah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Hari Raya Idul Fitri 1447 Hijriyah",
+    "is_leave_together": false
   },
   {
     "date": "2026-03-21",
-    "name": "Hari Raya Idul Fitri 1447 Hijriah",
+    "name": "Hari Raya Idul Fitri 1447 Hijriyah",
     "is_leave_together": false
   },
   {
     "date": "2026-03-22",
-    "name": "Hari Raya Idul Fitri 1447 Hijriah",
+    "name": "Hari Raya Idul Fitri 1447 Hijriyah",
     "is_leave_together": false
   },
   {
     "date": "2026-03-23",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1447 Hijriah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Hari Raya Idul Fitri 1447 Hijriyah",
+    "is_leave_together": false
   },
   {
     "date": "2026-03-24",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1447 Hijriah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Hari Raya Idul Fitri 1447 Hijriyah",
+    "is_leave_together": false
   },
   {
     "date": "2026-04-03",
-    "name": "Wafat Yesus Kristus",
+    "name": "Wafat Yesus Kristus / Jumat Agung",
     "is_leave_together": false
   },
   {
@@ -77,17 +77,17 @@
   {
     "date": "2026-05-15",
     "name": "Cuti Bersama Kenaikan Yesus Kristus",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2026-05-27",
-    "name": "Hari Raya Idul Adha 1447 Hijriah",
+    "name": "Hari Raya Idul Adha 1447 Hijriyah",
     "is_leave_together": false
   },
   {
     "date": "2026-05-28",
-    "name": "Cuti Bersama Hari Raya Idul Adha 1447 Hijriah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Hari Raya Idul Adha 1447 Hijriyah",
+    "is_leave_together": false
   },
   {
     "date": "2026-05-31",
@@ -101,12 +101,12 @@
   },
   {
     "date": "2026-06-16",
-    "name": "Tahun Baru Islam 1448 Hijriah",
+    "name": "Tahun Baru Islam 1448 Hijriyah",
     "is_leave_together": false
   },
   {
     "date": "2026-08-17",
-    "name": "Proklamasi Kemerdekaan RI",
+    "name": "Hari Kemerdekaan Republik Indonesia",
     "is_leave_together": false
   },
   {
@@ -117,7 +117,7 @@
   {
     "date": "2026-12-24",
     "name": "Cuti Bersama Hari Raya Natal",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2026-12-25",

@@ -52,12 +52,12 @@
   {
     "date": "2014-07-30",
     "name": "Cuti Bersama Idul Fitri 1435 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2014-08-01",
     "name": "Cuti Bersama Idul Fitri 1435 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2014-08-17",
@@ -82,6 +82,6 @@
   {
     "date": "2014-12-26",
     "name": "Cuti Bersama Natal",
-    "is_leave_together": true
+    "is_leave_together": false
   }
 ]

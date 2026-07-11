@@ -11,7 +11,7 @@
   },
   {
     "date": "2021-03-11",
-    "name": "Isra Mikraj Nabi Muhammad SAW",
+    "name": "Isra' Mi'raj Nabi Muhammad SAW",
     "is_leave_together": false
   },
   {
@@ -32,7 +32,12 @@
   {
     "date": "2021-05-12",
     "name": "Cuti Bersama Hari Raya Idul Fitri 1442 Hijriah",
-    "is_leave_together": true
+    "is_leave_together": false
+  },
+  {
+    "date": "2021-05-13",
+    "name": "Hari Raya Idul fitri 1442 Hijriah",
+    "is_leave_together": false
   },
   {
     "date": "2021-05-13",
@@ -40,18 +45,8 @@
     "is_leave_together": false
   },
   {
-    "date": "2021-05-13",
-    "name": "Hari Raya Idul Fitri 1442 Hijriah",
-    "is_leave_together": false
-  },
-  {
-    "date": "2021-05-14",
-    "name": "Hari Raya Idul Fitri 1442 Hijriah",
-    "is_leave_together": false
-  },
-  {
     "date": "2021-05-26",
-    "name": "Hari Raya Waisak 2565 BE",
+    "name": "Hari Raya Waisak 2565",
     "is_leave_together": false
   },
   {
@@ -71,7 +66,7 @@
   },
   {
     "date": "2021-08-17",
-    "name": "Hari Kemerdekaan RI",
+    "name": "Hari Kemerdekaan Republik Indonesia",
     "is_leave_together": false
   },
   {

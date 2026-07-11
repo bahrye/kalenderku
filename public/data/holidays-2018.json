@@ -47,17 +47,17 @@
   {
     "date": "2018-06-11",
     "name": "Cuti Bersama Idul Fitri 1439 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2018-06-12",
     "name": "Cuti Bersama Idul Fitri 1439 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2018-06-13",
     "name": "Cuti Bersama Idul Fitri 1439 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2018-06-15",
@@ -67,12 +67,12 @@
   {
     "date": "2018-06-18",
     "name": "Cuti Bersama Idul Fitri 1439 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2018-06-19",
     "name": "Cuti Bersama Idul Fitri 1439 H",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2018-06-27",
@@ -102,7 +102,7 @@
   {
     "date": "2018-12-24",
     "name": "Cuti Bersama Natal",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2018-12-25",
