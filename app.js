@@ -598,20 +598,40 @@ function showTooltip(cell, dayHolidays) {
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-  tooltipEl.style.left = `${buttonRect.left + scrollLeft + (buttonRect.width / 2)}px`;
+  // Temporarily show to measure width
+  tooltipEl.classList.remove("hidden");
+  tooltipEl.style.opacity = "0";
+  tooltipEl.style.transform = "scale(0.95)";
+  
+  const tooltipWidth = tooltipEl.offsetWidth;
+  const viewportWidth = window.innerWidth;
+
+  // Center position of the cell button
+  const cellCenter = buttonRect.left + scrollLeft + (buttonRect.width / 2);
+  let left = cellCenter - (tooltipWidth / 2);
+
+  // Constrain left boundary (min 12px padding from viewport edge)
+  if (left < scrollLeft + 12) {
+    left = scrollLeft + 12;
+  }
+  // Constrain right boundary (min 12px padding from viewport edge)
+  else if (left + tooltipWidth > scrollLeft + viewportWidth - 12) {
+    left = scrollLeft + viewportWidth - 12 - tooltipWidth;
+  }
+
+  tooltipEl.style.left = `${left}px`;
 
   // Prevent top boundary overflow (e.g. top row of the calendar)
   const isTopRow = buttonRect.top - 120 < 0;
   if (isTopRow) {
     tooltipEl.style.top = `${buttonRect.bottom + scrollTop + 8}px`;
-    tooltipEl.style.transform = 'translate(-50%, 0) scale(1)';
+    tooltipEl.style.transform = 'translate(0, 0) scale(0.95)';
   } else {
     tooltipEl.style.top = `${buttonRect.top + scrollTop - 8}px`;
-    tooltipEl.style.transform = 'translate(-50%, -100%) scale(1)';
+    tooltipEl.style.transform = 'translate(0, -100%) scale(0.95)';
   }
   
   // Transition-in
-  tooltipEl.classList.remove("hidden");
   setTimeout(() => {
     if (tooltipEl) {
       tooltipEl.style.opacity = "1";
