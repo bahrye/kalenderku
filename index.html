@@ -10,6 +10,15 @@
     } else {
       document.documentElement.classList.remove('dark');
     }
+
+    // Suppress cdn.tailwindcss.com production warning in console
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return;
+      }
+      originalWarn.apply(console, args);
+    };
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalenderku - Kalender Indonesia Up-to-Date</title>
@@ -320,7 +329,7 @@
         <span class="text-slate-300 dark:text-slate-800">|</span>
         <a href="https://wa.me/qr/FMVS3NLDIRUAA1" target="_blank" rel="noopener noreferrer"
           class="hover:text-slate-700 dark:hover:text-slate-200 transition flex items-center space-x-1">
-          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
           <span>Administrator</span>
         </a>
       </div>
