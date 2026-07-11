@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalenderku - Kalender Indonesia Up-to-Date</title>
+  <meta name="description" content="Kalender digital Indonesia interaktif dengan daftar hari libur nasional dan cuti bersama terlengkap tahun 2011-2028.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Smooth transition for theme toggles and background changes */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.1s ease;
+    }
+    /* Hide scrollbars for aesthetic panels but allow scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Glow effects behind elements (premium aesthetic) -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-rose-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+            Kalender<span class="text-rose-500">ku</span>
+          </h1>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 -mt-1 font-medium tracking-wider uppercase">Indonesia</p>
+        </div>
+      </a>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center space-x-3">
+        <!-- Hari Ini Button -->
+        <button id="btn-today" class="flex items-center space-x-1.5 px-3.5 py-1.5 text-sm font-medium rounded-lg border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-slate-200 transition duration-200 shadow-sm">
+          <i data-lucide="crosshair" class="w-4 h-4 text-brand-500"></i>
+          <span>Hari Ini</span>
+        </button>
+
+        <!-- Dark/Light Mode Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-slate-200 transition duration-200 shadow-sm" aria-label="Toggle Theme">
+          <i id="theme-toggle-dark-icon" data-lucide="moon" class="w-4.5 h-4.5 hidden"></i>
+          <i id="theme-toggle-light-icon" data-lucide="sun" class="w-4.5 h-4.5"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex flex-col lg:flex-row gap-6">
+
+    <!-- LEFT COLUMN: Calendar & Controls -->
+    <div class="flex-grow lg:w-2/3 flex flex-col gap-6">
+      
+      <!-- Calendar Controls Panel -->
+      <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+        
+        <!-- Previous / Next Month Navigation -->
+        <div class="flex items-center justify-between md:justify-start space-x-2 w-full md:w-auto">
+          <button id="btn-prev" class="p-2 rounded-xl border border-slate-200 hover:border-slate-300 bg-white dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:scale-105 active:scale-95 transition-transform" aria-label="Bulan Sebelumnya">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          
+          <h2 id="current-month-year" class="text-lg font-semibold min-w-[150px] text-center text-slate-800 dark:text-white px-2">
+            Desember 2026
+          </h2>
+          
+          <button id="btn-next" class="p-2 rounded-xl border border-slate-200 hover:border-slate-300 bg-white dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:scale-105 active:scale-95 transition-transform" aria-label="Bulan Selanjutnya">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Dropdowns for Month and Year selection -->
+        <div class="flex items-center space-x-2 w-full md:w-auto">
+          <!-- Month Dropdown -->
+          <div class="relative flex-grow md:flex-initial">
+            <select id="select-month" class="w-full md:w-40 appearance-none bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm cursor-pointer">
+              <option value="0">Januari</option>
+              <option value="1">Februari</option>
+              <option value="2">Maret</option>
+              <option value="3">April</option>
+              <option value="4">Mei</option>
+              <option value="5">Juni</option>
+              <option value="6">Juli</option>
+              <option value="7">Agustus</option>
+              <option value="8">September</option>
+              <option value="9">Oktober</option>
+              <option value="10">November</option>
+              <option value="11">Desember</option>
+            </select>
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Year Dropdown -->
+          <div class="relative flex-grow md:flex-initial">
+            <select id="select-year" class="w-full md:w-28 appearance-none bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm cursor-pointer">
+              <!-- Dynamically generated in app.js -->
+            </select>
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Calendar Grid Card -->
+      <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-5 shadow-sm">
+        
+        <!-- Day of the Week Headers (Indonesian Standard: Sunday starts first, let's use standard Minggu-Sabtu) -->
+        <div class="grid grid-cols-7 gap-2 mb-4 text-center">
+          <div class="text-xs font-semibold py-2 text-rose-500 tracking-wider uppercase">Min</div>
+          <div class="text-xs font-semibold py-2 text-slate-500 dark:text-slate-400 tracking-wider uppercase">Sen</div>
+          <div class="text-xs font-semibold py-2 text-slate-500 dark:text-slate-400 tracking-wider uppercase">Sel</div>
+          <div class="text-xs font-semibold py-2 text-slate-500 dark:text-slate-400 tracking-wider uppercase">Rab</div>
+          <div class="text-xs font-semibold py-2 text-slate-500 dark:text-slate-400 tracking-wider uppercase">Kam</div>
+          <div class="text-xs font-semibold py-2 text-slate-500 dark:text-slate-400 tracking-wider uppercase">Jum</div>
+          <div class="text-xs font-semibold py-2 text-sky-600 dark:text-sky-400 tracking-wider uppercase">Sab</div>
+        </div>
+
+        <!-- Date Cells Grid -->
+        <div id="calendar-days" class="grid grid-cols-7 gap-2 min-h-[340px]">
+          <!-- Dynmically rendered calendar days -->
+        </div>
+
+      </div>
+
+      <!-- Legend Panel -->
+      <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-4 shadow-sm flex flex-wrap gap-4 items-center justify-center text-xs font-medium text-slate-600 dark:text-slate-400">
+        <span class="flex items-center space-x-2">
+          <span class="w-3.5 h-3.5 rounded-md bg-rose-100 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 block"></span>
+          <span>Hari Minggu / Libur Nasional</span>
+        </span>
+        <span class="flex items-center space-x-2">
+          <span class="w-3.5 h-3.5 rounded-md bg-emerald-100 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 block"></span>
+          <span>Cuti Bersama</span>
+        </span>
+        <span class="flex items-center space-x-2">
+          <span class="w-3.5 h-3.5 rounded-md bg-sky-100 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-800/50 block"></span>
+          <span>Hari Sabtu</span>
+        </span>
+        <span class="flex items-center space-x-2">
+          <span class="w-3.5 h-3.5 rounded-md border-2 border-brand-500 block"></span>
+          <span>Hari Ini</span>
+        </span>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Selected Date Details & Month's Holidays List -->
+    <div class="lg:w-1/3 flex flex-col gap-6">
+      
+      <!-- Card: Selected Date Detail -->
+      <div id="detail-card" class="bg-gradient-to-tr from-brand-600 to-indigo-700 text-white rounded-2xl p-6 shadow-md shadow-brand-500/10 flex flex-col justify-between relative overflow-hidden min-h-[220px]">
+        <!-- Decorative subtle background circle patterns -->
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute -left-10 -top-10 w-24 h-24 bg-white/5 rounded-full blur-lg pointer-events-none"></div>
+        
+        <div>
+          <div class="flex items-center justify-between">
+            <span id="detail-day-name" class="text-sm font-medium tracking-wide uppercase opacity-90">Sabtu</span>
+            <span id="detail-weton-badge" class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-white/25 border border-white/20">Wage</span>
+          </div>
+          
+          <div class="mt-4 flex items-baseline">
+            <span id="detail-day-num" class="text-6xl font-extrabold tracking-tight">11</span>
+            <div class="ml-4">
+              <span id="detail-month-year" class="block font-semibold text-lg leading-tight">Juli 2026</span>
+              <span id="detail-hijri-date" class="block text-xs font-medium text-indigo-200 mt-1">26 Muharram 1448 H</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="detail-holiday-container" class="mt-6 pt-4 border-t border-white/25">
+          <div class="flex items-start space-x-2">
+            <div class="p-1 rounded-lg bg-white/20 mt-0.5">
+              <i data-lucide="info" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="text-xs text-indigo-150 uppercase tracking-wider font-semibold opacity-75">Keterangan Libur</p>
+              <p id="detail-holiday-name" class="text-sm font-medium leading-snug mt-0.5">Hari Kerja Biasa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Month's Holidays List -->
+      <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-5 shadow-sm flex-grow flex flex-col min-h-[300px]">
+        
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center space-x-2">
+            <div class="p-2 rounded-lg bg-rose-500/10 text-rose-500">
+              <i data-lucide="bell" class="w-4.5 h-4.5"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 dark:text-white">Daftar Libur Bulan Ini</h3>
+          </div>
+          <span id="holiday-count-badge" class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400">0 Hari</span>
+        </div>
+
+        <!-- Holidays Scroll List -->
+        <div id="holidays-list" class="flex-grow overflow-y-auto max-h-[320px] md:max-h-[380px] pr-1 mt-4 space-y-3 no-scrollbar">
+          <!-- Dynamically populated list -->
+          <div class="text-center text-slate-400 dark:text-slate-500 text-sm py-12">
+            <i data-lucide="smile" class="w-10 h-10 mx-auto mb-2 text-slate-300 dark:text-slate-700"></i>
+            Tidak ada hari libur di bulan ini
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white/50 dark:bg-slate-950/50 border-t border-slate-200/80 dark:border-slate-900/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-500 dark:text-slate-400 text-center md:text-left">
+        &copy; 2026 Kalenderku. Dibuat untuk Indonesia, selalu up-to-date.
+      </p>
+      <div class="flex items-center space-x-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+        <span class="flex items-center space-x-1">
+          <i data-lucide="cloud-lightning" class="w-3.5 h-3.5 text-sky-500"></i>
+          <span>Hosted on Cloudflare Pages</span>
+        </span>
+        <span class="text-slate-300 dark:text-slate-800">|</span>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 dark:hover:text-slate-200 transition flex items-center space-x-1">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>Source</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

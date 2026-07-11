@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kalender-id",
+  "pages_build_output_dir": ".",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kalender-db",
+      "database_id": "90e1c299-4272-46ae-a128-fcfe0a0a5dec"
+    }
+  ]
+}

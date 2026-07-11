@@ -1,0 +1,13 @@
+{
+  "name": "kalender-id",
+  "version": "1.0.0",
+  "description": "Kalender Indonesia Up-to-Date",
+  "main": "app.js",
+  "scripts": {
+    "dev": "wrangler pages dev . --port 8788 --compatibility-date=2026-07-08",
+    "deploy": "wrangler pages deploy . --project-name=kalender-id"
+  },
+  "devDependencies": {
+    "wrangler": "^3.107.0"
+  }
+}
