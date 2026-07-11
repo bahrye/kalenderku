@@ -542,36 +542,19 @@ function getJavanesePasaran(date) {
   return pasarans[index];
 }
 
-// Tabular Hijri Calendar Estimation
-function getJulianDay(year, month, day) {
-  if (month <= 2) {
-    year -= 1;
-    month += 12;
-  }
-  let A = Math.floor(year / 100);
-  let B = Math.floor(A / 4);
-  let C = 2 - A + B;
-  let E = Math.floor(365.25 * (year + 4716));
-  let F = Math.floor(30.6001 * (month + 1));
-  let jd = C + day + E + F - 1524.5;
-  return Math.floor(jd + 0.5);
-}
-
 function getHijriDate(date) {
-  let y = date.getFullYear();
-  let m = date.getMonth();
-  let d = date.getDate();
-  
-  let jd = getJulianDay(y, m + 1, d);
-  let l = jd - 1948440 + 10632;
-  let n = Math.floor((l - 1) / 10631);
-  l = l - 10631 * n + 354;
-  let j = (Math.floor((10985 - l) / 5316)) * (Math.floor((50 * l) / 17719)) + (Math.floor(l / 5616)) * (Math.floor((43 * l) / 15250));
-  l = l - (Math.floor((30 - j) / 15)) * (Math.floor((17719 * j) / 50)) - (Math.floor(j / 2)) * (Math.floor((15250 * j) / 43)) + 30;
-  let hm = Math.floor((24 * l) / 709);
-  let hd = l - Math.floor((709 * hm) / 24);
-  let hy = 30 * n + j - 30;
-  
+  const parts = new Intl.DateTimeFormat('id-ID-u-ca-islamic', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric'
+  }).formatToParts(date);
+
+  const dayPart = parts.find(p => p.type === 'day');
+  const monthPart = parts.find(p => p.type === 'month');
+  const yearPart = parts.find(p => p.type === 'year');
+
+  const hm = parseInt(monthPart.value, 10);
+
   const hijriMonths = [
     "Muharram", "Safar", "Rabi'ul Awal", "Rabi'ul Akhir",
     "Jumadil Awal", "Jumadil Akhir", "Rajab", "Sya'ban",
@@ -579,9 +562,9 @@ function getHijriDate(date) {
   ];
   
   return {
-    day: hd,
+    day: parseInt(dayPart.value, 10),
     month: hijriMonths[hm - 1] || "Muharram",
-    year: hy
+    year: parseInt(yearPart.value, 10)
   };
 }
 
