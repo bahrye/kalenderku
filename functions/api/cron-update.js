@@ -11,98 +11,54 @@ export async function onRequest(context) {
     });
   }
 
-  const results = [];
-  const startYear = 2011;
-  const currentYear = new Date().getFullYear();
-  const endYear = currentYear + 2;
+  // Get GITHUB_PAT from environment secrets
+  const githubPat = context.env.GITHUB_PAT;
+  if (!githubPat) {
+    return new Response(JSON.stringify({ error: "Configuration Error: GITHUB_PAT secret is missing in Cloudflare Pages Dashboard" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
 
-  let cache;
+  // Trigger GitHub Actions Repository Dispatch to run the sync workflow
   try {
-    cache = caches.default;
-  } catch (e) {
-    console.warn("Cache API not available during cron run:", e);
-  }
-
-  for (let year = startYear; year <= endYear; year++) {
-    try {
-      // 1. Fetch holidays from public API
-      const response = await fetch(`https://libur.deno.dev/api?year=${year}`);
-      if (!response.ok) {
-        throw new Error(`API returned status ${response.status}`);
+    const response = await fetch(
+      "https://api.github.com/repos/bahrye/kalenderku/dispatches",
+      {
+        method: "POST",
+        headers: {
+          "User-Agent": "Cloudflare-Pages-Worker",
+          "Accept": "application/vnd.github+json",
+          "Authorization": `Bearer ${githubPat}`,
+          "X-GitHub-Api-Version": "2022-11-28"
+        },
+        body: JSON.stringify({
+          event_type: "sync_holidays"
+        })
       }
-      
-      const resJson = await response.json();
-      if (!resJson || !Array.isArray(resJson)) {
-        throw new Error("Invalid API response format");
-      }
+    );
 
-      // Map API response to our app format
-      const mappedData = resJson.map(h => ({
-        date: h.date,
-        name: h.name,
-        is_leave_together: !h.is_national_holiday
-      }));
-      
-      // Sort mappedData by date and name lexicographically to match the order of DB queries
-      mappedData.sort((a, b) => {
-        if (a.date !== b.date) {
-          return a.date < b.date ? -1 : 1;
-        }
-        return a.name < b.name ? -1 : (a.name > b.name ? 1 : 0);
-      });
-      
-      const newValue = JSON.stringify(mappedData);
-
-      // 2. Fetch existing holidays from D1 for that year
-      const { results: existingRows } = await context.env.DB.prepare(
-        "SELECT date, name, is_leave_together FROM holidays WHERE date LIKE ? ORDER BY date ASC, name ASC"
-      ).bind(`${year}-%`).all();
-
-      // Normalize is_leave_together to boolean for comparison
-      const normalizedExisting = existingRows ? existingRows.map(r => ({
-        date: r.date,
-        name: r.name,
-        is_leave_together: r.is_leave_together === 1 || r.is_leave_together === true
-      })) : [];
-
-      // 3. Compare and update only if there are changes (D1 Write Optimization)
-      const existingString = JSON.stringify(normalizedExisting);
-      if (existingString === newValue) {
-        results.push({ year, status: "skipped", message: "Data is already identical, D1 write skipped" });
-      } else {
-        // Write new data to D1
-        // We delete first to clean up any removed holidays for that year
-        const deleteStmt = context.env.DB.prepare("DELETE FROM holidays WHERE date LIKE ?").bind(`${year}-%`);
-        const insertStmt = context.env.DB.prepare("INSERT OR REPLACE INTO holidays (date, name, is_leave_together) VALUES (?, ?, ?)");
-        const stmts = [
-          deleteStmt,
-          ...mappedData.map(h => insertStmt.bind(h.date, h.name, h.is_leave_together ? 1 : 0))
-        ];
-        
-        await context.env.DB.batch(stmts);
-        
-        // Purge Edge Cache for /api/holidays?year=YYYY
-        if (cache) {
-          try {
-            const holidaysUrl = new URL(context.request.url);
-            holidaysUrl.pathname = "/api/holidays";
-            holidaysUrl.search = `?year=${year}`;
-            await cache.delete(holidaysUrl.toString());
-            results.push({ year, status: "updated", message: "D1 updated and edge cache purged" });
-          } catch (cacheDeleteError) {
-            results.push({ year, status: "updated", message: `D1 updated, cache purge failed: ${cacheDeleteError.message}` });
-          }
-        } else {
-          results.push({ year, status: "updated", message: "D1 updated, cache not purged (no cache API)" });
-        }
-      }
-    } catch (err) {
-      results.push({ year, status: "failed", message: err.message });
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`GitHub API returned status ${response.status}: ${errorText}`);
     }
-  }
 
-  return new Response(JSON.stringify({ success: true, results }), {
-    status: 200,
-    headers: { "Content-Type": "application/json" }
-  });
+    return new Response(
+      JSON.stringify({ 
+        success: true, 
+        message: "GitHub Actions sync workflow triggered successfully by cron-job.org" 
+      }), 
+      {
+        status: 200,
+        headers: { 
+          "Content-Type": "application/json" 
+        }
+      }
+    );
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
 }
