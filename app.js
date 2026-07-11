@@ -145,25 +145,30 @@ async function fetchHolidays(year) {
 // Setup Event Listeners
 function setupEventListeners() {
   btnPrev.addEventListener("click", () => {
+    hideTooltip();
     navigateMonth(-1);
   });
 
   btnNext.addEventListener("click", () => {
+    hideTooltip();
     navigateMonth(1);
   });
 
   selectMonth.addEventListener("change", (e) => {
+    hideTooltip();
     currentMonth = parseInt(e.target.value);
     renderApp();
   });
 
   selectYear.addEventListener("change", async (e) => {
+    hideTooltip();
     currentYear = parseInt(e.target.value);
     await fetchHolidays(currentYear);
     renderApp();
   });
 
   btnToday.addEventListener("click", async () => {
+    hideTooltip();
     selectedDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
     const targetYear = selectedDate.getFullYear();
     currentMonth = selectedDate.getMonth();
@@ -285,6 +290,7 @@ function renderCalendarGrid() {
     // Highlight Selected Date
     const isSelected = selectedDate.getFullYear() === currentYear && selectedDate.getMonth() === currentMonth && selectedDate.getDate() === day;
     if (isSelected) {
+      cell.id = "selected-date-cell";
       cellClasses += " border-2 border-indigo-600 dark:border-indigo-400 shadow-sm";
     }
 
@@ -312,9 +318,23 @@ function renderCalendarGrid() {
     }
 
     // Click handler to select date
-    cell.addEventListener("click", () => {
+    cell.addEventListener("click", (e) => {
       selectedDate = currentDate;
+
+      // Close previous tooltip
+      hideTooltip();
+
       renderApp();
+
+      // If on mobile and it is a holiday, show tooltip on the newly selected cell
+      if (window.innerWidth < 1024 && holiday) {
+        // Prevent click from propagating to document listener immediately
+        e.stopPropagation();
+        const selectedCell = document.getElementById("selected-date-cell");
+        if (selectedCell) {
+          showTooltip(selectedCell, holiday);
+        }
+      }
     });
 
     calendarDaysContainer.appendChild(cell);
@@ -510,4 +530,93 @@ function getHijriDate(date) {
     month: hijriMonths[hm - 1] || "Muharram",
     year: hy
   };
+}
+
+// Tooltip Helpers for Mobile Viewports
+let tooltipEl = null;
+
+function createTooltip() {
+  if (tooltipEl) return;
+  tooltipEl = document.createElement("div");
+  tooltipEl.id = "calendar-tooltip";
+  tooltipEl.className = "absolute hidden z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border transition-all duration-150 ease-out scale-95 opacity-0 pointer-events-auto";
+  document.body.appendChild(tooltipEl);
+
+  // Close when clicking outside of the calendar cells
+  document.addEventListener("click", (e) => {
+    if (tooltipEl && !tooltipEl.contains(e.target) && !e.target.closest("#calendar-days")) {
+      hideTooltip();
+    }
+  });
+}
+
+function showTooltip(cell, holiday) {
+  createTooltip();
+  
+  const isLeave = holiday.is_leave_together;
+
+  // Set visual theme based on Cuti Bersama vs National Holiday
+  if (isLeave) {
+    tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-emerald-500/20 bg-emerald-900/95 dark:bg-emerald-950/95 transition-all duration-150 ease-out pointer-events-auto";
+    tooltipEl.innerHTML = `
+      <div class="flex flex-col space-y-2">
+        <span class="w-fit text-[9px] font-extrabold uppercase tracking-wider bg-emerald-800 dark:bg-emerald-900 px-1.5 py-0.5 rounded text-emerald-100">Cuti Bersama</span>
+        <p class="font-bold leading-snug text-white">${holiday.name}</p>
+        <p class="text-[10px] text-emerald-200">${formatTooltipDate(holiday.date)}</p>
+      </div>
+    `;
+  } else {
+    tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-rose-500/20 bg-rose-900/95 dark:bg-rose-950/95 transition-all duration-150 ease-out pointer-events-auto";
+    tooltipEl.innerHTML = `
+      <div class="flex flex-col space-y-2">
+        <span class="w-fit text-[9px] font-extrabold uppercase tracking-wider bg-rose-800 dark:bg-rose-900 px-1.5 py-0.5 rounded text-rose-100">Libur Nasional</span>
+        <p class="font-bold leading-snug text-white">${holiday.name}</p>
+        <p class="text-[10px] text-rose-200">${formatTooltipDate(holiday.date)}</p>
+      </div>
+    `;
+  }
+
+  // Position the tooltip centered relative to the cell
+  const buttonRect = cell.getBoundingClientRect();
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  tooltipEl.style.left = `${buttonRect.left + scrollLeft + (buttonRect.width / 2)}px`;
+
+  // Prevent top boundary overflow (e.g. top row of the calendar)
+  const isTopRow = buttonRect.top - 120 < 0;
+  if (isTopRow) {
+    tooltipEl.style.top = `${buttonRect.bottom + scrollTop + 8}px`;
+    tooltipEl.style.transform = 'translate(-50%, 0) scale(1)';
+  } else {
+    tooltipEl.style.top = `${buttonRect.top + scrollTop - 8}px`;
+    tooltipEl.style.transform = 'translate(-50%, -100%) scale(1)';
+  }
+  
+  // Transition-in
+  tooltipEl.classList.remove("hidden");
+  setTimeout(() => {
+    if (tooltipEl) {
+      tooltipEl.style.opacity = "1";
+      tooltipEl.style.transform = tooltipEl.style.transform.replace("scale(0.95)", "scale(1)");
+    }
+  }, 10);
+}
+
+function hideTooltip() {
+  if (tooltipEl && !tooltipEl.classList.contains("hidden")) {
+    tooltipEl.style.opacity = "0";
+    tooltipEl.style.transform = tooltipEl.style.transform.replace("scale(1)", "scale(0.95)");
+    setTimeout(() => {
+      if (tooltipEl && tooltipEl.style.opacity === "0") {
+        tooltipEl.classList.add("hidden");
+      }
+    }, 150);
+  }
+}
+
+function formatTooltipDate(dateStr) {
+  const [y, m, d] = dateStr.split("-");
+  const date = new Date(y, m - 1, d);
+  return `${dayNames[date.getDay()]}, ${parseInt(d)} ${monthNames[date.getMonth()]} ${y}`;
 }
