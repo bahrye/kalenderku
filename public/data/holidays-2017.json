@@ -7,7 +7,7 @@
   {
     "date": "2017-01-02",
     "name": "Cuti bersama tahun baru",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2017-01-28",
@@ -62,17 +62,17 @@
   {
     "date": "2017-06-27",
     "name": "Cuti bersama Idul Fitri",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2017-06-28",
     "name": "Cuti bersama Idul Fitri",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2017-06-29",
     "name": "Cuti bersama Idul Fitri",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2017-08-17",
@@ -102,6 +102,6 @@
   {
     "date": "2017-12-26",
     "name": "Cuti bersama Natal",
-    "is_leave_together": true
+    "is_leave_together": false
   }
 ]

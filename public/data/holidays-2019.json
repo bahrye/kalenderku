@@ -47,7 +47,7 @@
   {
     "date": "2019-06-03",
     "name": "Cuti Bersama Idul Fitri 1440 Hijriyah",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2019-06-05",
@@ -57,7 +57,7 @@
   {
     "date": "2019-06-07",
     "name": "Cuti Bersama Idul Fitri 1440 Hijriyah",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2019-08-11",
@@ -82,7 +82,7 @@
   {
     "date": "2019-12-24",
     "name": "Cuti Bersama Hari Raya Natal",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2019-12-25",

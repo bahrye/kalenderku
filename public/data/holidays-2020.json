@@ -1,7 +1,7 @@
 [
   {
     "date": "2020-01-01",
-    "name": "Tahun Baru 2020 Masehi",
+    "name": "Tahun Baru 2020  Masehi",
     "is_leave_together": false
   },
   {
@@ -11,12 +11,12 @@
   },
   {
     "date": "2020-03-22",
-    "name": "Isra Mikraj Nabi Muhammad SAW",
+    "name": "Isra Mi'raj Nabi Muhammad SAW",
     "is_leave_together": false
   },
   {
     "date": "2020-03-25",
-    "name": "Hari Suci Nyepi Tahun Baru Saka 1942",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1942",
     "is_leave_together": false
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "date": "2020-05-07",
-    "name": "Hari Raya Waisak 2564 BE",
+    "name": "Hari Raya Waisak 2564",
     "is_leave_together": false
   },
   {
@@ -41,11 +41,6 @@
   },
   {
     "date": "2020-05-24",
-    "name": "Hari Raya Idul Fitri 1441 Hijriyah",
-    "is_leave_together": false
-  },
-  {
-    "date": "2020-05-25",
     "name": "Hari Raya Idul Fitri 1441 Hijriyah",
     "is_leave_together": false
   },
@@ -61,7 +56,7 @@
   },
   {
     "date": "2020-08-17",
-    "name": "Hari Kemerdekaan RI",
+    "name": "Hari Kemerdekaan RI ke 75",
     "is_leave_together": false
   },
   {
@@ -72,12 +67,12 @@
   {
     "date": "2020-08-21",
     "name": "Cuti Bersama Tahun Baru Islam 1442 Hijriyah",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2020-10-28",
     "name": "Cuti Bersama Maulid Nabi Muhammad SAW",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2020-10-29",
@@ -87,12 +82,17 @@
   {
     "date": "2020-10-30",
     "name": "Cuti Bersama Maulid Nabi Muhammad SAW",
-    "is_leave_together": true
+    "is_leave_together": false
+  },
+  {
+    "date": "2020-12-09",
+    "name": "Pilkada 2020",
+    "is_leave_together": false
   },
   {
     "date": "2020-12-24",
     "name": "Cuti Bersama Hari Raya Natal",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2020-12-25",
@@ -101,7 +101,7 @@
   },
   {
     "date": "2020-12-31",
-    "name": "Cuti Bersama Pengganti Hari Raya Idul Fitri 1441 Hijriah",
-    "is_leave_together": true
+    "name": "Pengganti Cuti Bersama Hari Raya Idul Fitri 1441 Hijriyah",
+    "is_leave_together": false
   }
 ]

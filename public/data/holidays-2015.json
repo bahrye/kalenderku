@@ -47,7 +47,7 @@
   {
     "date": "2015-07-16",
     "name": "Cuti Bersama Idul Fitri",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2015-07-17",
@@ -57,7 +57,7 @@
   {
     "date": "2015-07-20",
     "name": "Cuti Bersama Idul Fitri",
-    "is_leave_together": true
+    "is_leave_together": false
   },
   {
     "date": "2015-08-17",
@@ -75,6 +75,11 @@
     "is_leave_together": false
   },
   {
+    "date": "2015-12-00",
+    "name": "Maulid Nabi Muhammad SAW 1437 H",
+    "is_leave_together": false
+  },
+  {
     "date": "2015-12-09",
     "name": "Pemilihan Kepala Daerah (Pilkada) serentak",
     "is_leave_together": false
@@ -82,11 +87,6 @@
   {
     "date": "2015-12-24",
     "name": "Cuti Bersama Natal",
-    "is_leave_together": true
-  },
-  {
-    "date": "2015-12-00",
-    "name": "Maulid Nabi Muhammad SAW 1437 H",
     "is_leave_together": false
   },
   {

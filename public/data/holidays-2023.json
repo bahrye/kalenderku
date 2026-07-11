@@ -1,7 +1,7 @@
 [
   {
     "date": "2023-01-01",
-    "name": "Tahun Baru 2023 Masehi",
+    "name": "Tahun Baru 2023",
     "is_leave_together": false
   },
   {
@@ -11,23 +11,23 @@
   },
   {
     "date": "2023-01-23",
-    "name": "Cuti Bersama Tahun Baru Imlek 2574 Kongzili",
-    "is_leave_together": true
+    "name": "Cuti Bersama Imlek",
+    "is_leave_together": false
   },
   {
     "date": "2023-02-18",
-    "name": "Isra Mikraj Nabi Muhammad SAW",
+    "name": "Isra' Mi'raj Nabi Muhammad SAW",
     "is_leave_together": false
   },
   {
     "date": "2023-03-22",
-    "name": "Hari Suci Nyepi Tahun Baru Saka 1945",
+    "name": "Hari Raya Nyepi 1945",
     "is_leave_together": false
   },
   {
     "date": "2023-03-23",
-    "name": "Cuti Bersama Hari Suci Nyepi Tahun Baru Saka 1945",
-    "is_leave_together": true
+    "name": "Cuti Bersama Nyepi",
+    "is_leave_together": false
   },
   {
     "date": "2023-04-07",
@@ -36,38 +36,23 @@
   },
   {
     "date": "2023-04-19",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1444 Hijriyah",
-    "is_leave_together": true
-  },
-  {
-    "date": "2023-04-20",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1444 Hijriyah",
-    "is_leave_together": true
-  },
-  {
-    "date": "2023-04-21",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1444 Hijriyah",
-    "is_leave_together": true
-  },
-  {
-    "date": "2023-04-22",
-    "name": "Hari Raya Idul Fitri 1444 Hijriyah",
+    "name": "Cuti Bersama Idul Fitri",
     "is_leave_together": false
   },
   {
-    "date": "2023-04-23",
-    "name": "Hari Raya Idul Fitri 1444 Hijriyah",
+    "date": "2023-04-20",
+    "name": "Cuti Bersama Idul Fitri",
+    "is_leave_together": false
+  },
+  {
+    "date": "2023-04-22",
+    "name": "Idul Fitri 1444 H",
     "is_leave_together": false
   },
   {
     "date": "2023-04-24",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1444 Hijriyah",
-    "is_leave_together": true
-  },
-  {
-    "date": "2023-04-25",
-    "name": "Cuti Bersama Hari Raya Idul Fitri 1444 Hijriyah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Idul Fitri",
+    "is_leave_together": false
   },
   {
     "date": "2023-05-01",
@@ -86,37 +71,37 @@
   },
   {
     "date": "2023-06-02",
-    "name": "Cuti Bersama Hari Raya Waisak",
-    "is_leave_together": true
+    "name": "Cuti Bersama Waisak",
+    "is_leave_together": false
   },
   {
     "date": "2023-06-04",
-    "name": "Hari Raya Waisak 2567 BE",
+    "name": "Hari Raya Waisak 2567",
     "is_leave_together": false
   },
   {
     "date": "2023-06-28",
-    "name": "Cuti Bersama Hari Raya Idul Adha 1444 Hijriyah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Idul Adha",
+    "is_leave_together": false
   },
   {
     "date": "2023-06-29",
-    "name": "Hari Raya Idul Adha 1444 Hijriyah",
+    "name": "Hari Raya Idul Adha 1444 H",
     "is_leave_together": false
   },
   {
     "date": "2023-06-30",
-    "name": "Cuti Bersama Hari Raya Idul Adha 1444 Hijriyah",
-    "is_leave_together": true
+    "name": "Cuti Bersama Idul Adha",
+    "is_leave_together": false
   },
   {
     "date": "2023-07-19",
-    "name": "Tahun Baru Islam 1445 Hijriyah",
+    "name": "Tahun Baru Islam 1445 H",
     "is_leave_together": false
   },
   {
     "date": "2023-08-17",
-    "name": "Hari Kemerdekaan RI",
+    "name": "Hari Kemerdekaan Republik Indonesia ke 78",
     "is_leave_together": false
   },
   {
@@ -131,7 +116,7 @@
   },
   {
     "date": "2023-12-26",
-    "name": "Cuti Bersama Hari Raya Natal",
-    "is_leave_together": true
+    "name": "Cuti Bersama Natal",
+    "is_leave_together": false
   }
 ]
