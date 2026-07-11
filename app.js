@@ -256,10 +256,10 @@ function renderCalendarGrid() {
     cell.type = "button";
     
     // Core styling classes
-    let cellClasses = "flex flex-col items-center justify-between p-2.5 rounded-xl text-sm font-medium relative h-14 w-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ";
+    let cellClasses = "flex flex-col items-center justify-between p-1 sm:p-2.5 rounded-xl text-sm font-medium relative h-12 sm:h-14 w-full transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none ";
     
     let labelClasses = "text-xs font-semibold mt-auto truncate w-full text-center px-0.5 ";
-    let numClasses = "text-base font-bold ";
+    let numClasses = "text-sm sm:text-base font-bold ";
 
     // Identify holiday vs weekend vs weekday styling
     if (dayOfWeek === 0 || (holiday && !holiday.is_leave_together)) {
