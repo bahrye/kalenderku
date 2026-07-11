@@ -47,7 +47,7 @@ jobs:
           git commit -m "Auto-update holidays JSON files [skip ci]"
           git push
         else
-          console.log("No local JSON changes to commit.")
+          echo "No local JSON changes to commit."
         fi
       shell: bash
 
