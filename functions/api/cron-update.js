@@ -2,8 +2,15 @@ export async function onRequest(context) {
   const { searchParams } = new URL(context.request.url);
   const token = searchParams.get('token');
   
-  // Authenticate token using environment variable or a secure fallback
-  const expectedToken = context.env.CRON_SECRET || 'kalender_cron_secret';
+  // Authenticate token using environment variable
+  const expectedToken = context.env.CRON_SECRET;
+  if (!expectedToken) {
+    return new Response(JSON.stringify({ error: "Server Configuration Error: CRON_SECRET is missing" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
   if (!token || token !== expectedToken) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), {
       status: 401,
