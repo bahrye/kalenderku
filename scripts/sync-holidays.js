@@ -22,7 +22,11 @@ async function run() {
   for (let year = minYear; year <= maxYear; year++) {
     console.log(`Fetching holidays for year ${year}...`);
     try {
-      const response = await fetch(`https://libur.deno.dev/api?year=${year}`);
+      const apiUrl = process.env.HOLIDAY_API_URL;
+      if (!apiUrl) {
+        throw new Error("HOLIDAY_API_URL environment variable is not set.");
+      }
+      const response = await fetch(`${apiUrl}?year=${year}`);
       if (!response.ok) {
         console.warn(`Failed to fetch from API for year ${year}: HTTP ${response.status}`);
         continue;
