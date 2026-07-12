@@ -91,6 +91,10 @@ async function fetchMetadata() {
     if (checkElement) {
       checkElement.innerText = data.lastChecked ? formatWIB(data.lastChecked) : "Tidak tersedia";
     }
+    const maxYearElement = document.getElementById("api-last-year");
+    if (maxYearElement) {
+      maxYearElement.innerText = data.maxYear || "Tidak tersedia";
+    }
   } catch (err) {
     console.warn("Could not load metadata:", err);
     if (updateElement) updateElement.innerText = "Tidak tersedia";
