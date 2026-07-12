@@ -13,7 +13,7 @@
 
     // Suppress cdn.tailwindcss.com production warning in console
     const originalWarn = console.warn;
-    console.warn = function(...args) {
+    console.warn = function (...args) {
       if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
         return;
       }
@@ -321,10 +321,14 @@
           <h3 class="font-bold text-slate-800 dark:text-white">API JSON Kalender</h3>
         </div>
         <div class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
-          <p>Akses data libur via API. Gunakan parameter <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded text-brand-500">?year=</code> untuk tahun spesifik:</p>
-          <div class="bg-slate-100 dark:bg-slate-950 p-2 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-            <code id="api-url-text" class="text-[11px] flex-grow min-w-0 overflow-x-auto whitespace-nowrap no-scrollbar block text-slate-700 dark:text-slate-300">https://kalender-id.pages.dev/api/holidays?year=2026</code>
-            <a id="api-url-link" href="https://kalender-id.pages.dev/api/holidays?year=2026" target="_blank" title="Coba API" class="text-brand-500 hover:text-brand-600 ml-2 flex-shrink-0">
+          <p>Akses data libur via API. Gunakan parameter <code
+              class="bg-slate-100 dark:bg-slate-800 px-1 rounded text-brand-500">?year=</code> untuk tahun spesifik:</p>
+          <div
+            class="bg-slate-100 dark:bg-slate-950 p-2 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <code id="api-url-text"
+              class="text-[11px] flex-grow min-w-0 overflow-x-auto whitespace-nowrap no-scrollbar block text-slate-700 dark:text-slate-300">https://kalender-id.pages.dev/api/holidays?year=2026</code>
+            <a id="api-url-link" href="https://kalender-id.pages.dev/api/holidays?year=2026" target="_blank"
+              title="Coba API" class="text-brand-500 hover:text-brand-600 ml-2 flex-shrink-0">
               <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
@@ -336,7 +340,8 @@
             <i data-lucide="clock" class="w-3.5 h-3.5"></i>
             <span>Update terakhir: <span id="last-update-time">Memuat...</span></span>
           </p>
-          <p class="flex items-center space-x-1.5 mt-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-100 dark:bg-rose-950/60 px-2.5 py-1.5 rounded-md w-fit border border-rose-200 dark:border-rose-900/80">
+          <p
+            class="flex items-center space-x-1.5 mt-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-100 dark:bg-rose-950/60 px-2.5 py-1.5 rounded-md w-fit border border-rose-200 dark:border-rose-900/80">
             <i data-lucide="calendar-check" class="w-4 h-4"></i>
             <span>Tahun update terakhir: <span id="api-last-year">Memuat...</span></span>
           </p>
@@ -351,7 +356,7 @@
   <footer class="bg-white/50 dark:bg-slate-950/50 border-t border-slate-200/80 dark:border-slate-900/80 py-6 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-xs text-slate-500 dark:text-slate-400 text-center md:text-left">
-        &copy; 2026 Kalenderku. Dibuat untuk Indonesia, selalu up-to-date.
+        &copy; 2026 Kalenderku. Dibuat oleh Syamsul Bahri.
       </p>
       <div class="flex items-center space-x-4 text-xs font-medium text-slate-500 dark:text-slate-400">
         <span class="flex items-center space-x-1">
