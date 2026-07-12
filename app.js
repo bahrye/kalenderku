@@ -268,8 +268,8 @@ function setupEventListeners() {
       const diffX = touchStartX - touchEndX;
       const diffY = Math.abs(touchStartY - touchEndY);
       
-      // Check if horizontal swipe is prominent enough
-      if (Math.abs(diffX) > 40 && diffY < 40) {
+      // Check if horizontal swipe is prominent enough (X movement is significantly larger than Y)
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > diffY * 1.5) {
         if (diffX > 0) {
           // Swiped left (next month)
           btnNext.click();
@@ -282,9 +282,15 @@ function setupEventListeners() {
   }
 }
 
+let isNavigating = false;
+
 // Navigate Month Helper
 async function navigateMonth(direction) {
-  renderAnimation = direction > 0 ? 'next' : 'prev';
+  if (isNavigating) return;
+  isNavigating = true;
+
+  try {
+    renderAnimation = direction > 0 ? 'next' : 'prev';
   let targetMonth = currentMonth + direction;
   let targetYear = currentYear;
   if (targetMonth < 0) {
@@ -312,9 +318,12 @@ async function navigateMonth(direction) {
     await fetchHolidays(currentYear);
   }
 
-  selectMonth.value = currentMonth;
-  
-  renderApp();
+    selectMonth.value = currentMonth;
+    
+    renderApp();
+  } finally {
+    isNavigating = false;
+  }
 }
 
 // Render Complete App
