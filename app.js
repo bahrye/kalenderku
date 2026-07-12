@@ -220,6 +220,7 @@ function setupEventListeners() {
   selectMonth.addEventListener("change", (e) => {
     hideTooltip();
     currentMonth = parseInt(e.target.value);
+    renderAnimation = 'fade';
     renderApp();
   });
 
@@ -227,6 +228,7 @@ function setupEventListeners() {
     hideTooltip();
     currentYear = parseInt(e.target.value);
     await fetchHolidays(currentYear);
+    renderAnimation = 'fade';
     renderApp();
   });
 
@@ -244,6 +246,7 @@ function setupEventListeners() {
       await fetchHolidays(currentYear);
     }
     
+    renderAnimation = 'fade';
     renderApp();
   });
 
@@ -345,10 +348,10 @@ function renderCalendarGrid() {
     calendarDaysContainer.classList.add('animate-swipe-next');
   } else if (renderAnimation === 'prev') {
     calendarDaysContainer.classList.add('animate-swipe-prev');
-  } else {
+  } else if (renderAnimation === 'fade') {
     calendarDaysContainer.classList.add('animate-fade-scale');
   }
-  renderAnimation = 'fade'; // Reset animation state
+  renderAnimation = 'none'; // Reset animation state so normal clicks don't blink
 
   const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Sunday=0, Monday=1, ...
   const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
