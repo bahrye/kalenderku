@@ -1,5 +1,9 @@
 # Kalenderku - Kalender Indonesia Up-to-Date 📅🇮🇩
 
+[![Live Demo](https://img.shields.io/badge/Lihat_Live_Demo-Buka_Aplikasi-0ea5e9?style=for-the-badge&logo=safari&logoColor=white)](https://kalender-id.pages.dev/)
+<br>
+**Akses langsung aplikasi web di sini: [https://kalender-id.pages.dev/](https://kalender-id.pages.dev/)**
+
 Kalenderku adalah aplikasi web interaktif yang menampilkan kalender Indonesia lengkap dengan hari libur nasional dan cuti bersama dari tahun 2011 hingga tahun-tahun mendatang. Proyek ini dibangun untuk berjalan super cepat dengan memanfaatkan infrastruktur Cloudflare (Pages, Workers, dan D1).
 
 ## ✨ Fitur Utama
