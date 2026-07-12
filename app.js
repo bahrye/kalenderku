@@ -8,6 +8,9 @@ const todayDate = new Date(2026, 6, 11); // Standard today reference as per cont
 // Cache for storing loaded holidays data per year to avoid repeated fetch requests
 const holidaysCache = {};
 
+// Animation state for rendering
+let renderAnimation = 'fade';
+
 // Year boundaries configuration
 const minYear = 2011;
 const maxYear = todayDate.getFullYear() + 2;
@@ -243,10 +246,42 @@ function setupEventListeners() {
     
     renderApp();
   });
+
+  // Swipe Gestures for Mobile
+  const calendarCard = document.getElementById("calendar-card");
+  if (calendarCard) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    calendarCard.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    calendarCard.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      
+      const diffX = touchStartX - touchEndX;
+      const diffY = Math.abs(touchStartY - touchEndY);
+      
+      // Check if horizontal swipe is prominent enough
+      if (Math.abs(diffX) > 40 && diffY < 40) {
+        if (diffX > 0) {
+          // Swiped left (next month)
+          btnNext.click();
+        } else {
+          // Swiped right (previous month)
+          btnPrev.click();
+        }
+      }
+    }, { passive: true });
+  }
 }
 
 // Navigate Month Helper
 async function navigateMonth(direction) {
+  renderAnimation = direction > 0 ? 'next' : 'prev';
   let targetMonth = currentMonth + direction;
   let targetYear = currentYear;
   if (targetMonth < 0) {
@@ -301,6 +336,19 @@ function renderApp() {
 // Render Calendar Grid (Days & Holidays)
 function renderCalendarGrid() {
   calendarDaysContainer.innerHTML = "";
+
+  // Apply Animation
+  calendarDaysContainer.classList.remove('animate-swipe-next', 'animate-swipe-prev', 'animate-fade-scale');
+  void calendarDaysContainer.offsetWidth; // Trigger reflow
+  
+  if (renderAnimation === 'next') {
+    calendarDaysContainer.classList.add('animate-swipe-next');
+  } else if (renderAnimation === 'prev') {
+    calendarDaysContainer.classList.add('animate-swipe-prev');
+  } else {
+    calendarDaysContainer.classList.add('animate-fade-scale');
+  }
+  renderAnimation = 'fade'; // Reset animation state
 
   const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Sunday=0, Monday=1, ...
   const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
