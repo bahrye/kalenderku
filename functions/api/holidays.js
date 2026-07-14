@@ -6,7 +6,9 @@ export async function onRequest(context) {
     console.warn("Cache API not available:", e);
   }
 
-  const cacheKey = context.request.url;
+  const cacheUrl = new URL(context.request.url);
+  cacheUrl.searchParams.set("v", "v2"); // Cache busting to force Cloudflare Edge to pull the updated response format
+  const cacheKey = new Request(cacheUrl.toString(), context.request);
 
   // Try to match in cache first to prevent KV reads
   if (cache) {
