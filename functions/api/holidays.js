@@ -30,10 +30,18 @@ export async function onRequest(context) {
   const { searchParams } = new URL(context.request.url);
   const year = searchParams.get('year');
   
-  if (!year) {
-    return new Response(JSON.stringify({ error: "Missing year parameter" }), {
+  // Validate that the year is present and is a 4-digit number
+  const yearPattern = /^\d{4}$/;
+  if (!year || !yearPattern.test(year)) {
+    return new Response(JSON.stringify({ 
+      error: "Format link salah atau parameter tidak valid! Gunakan format '?year=2021' untuk mengakses data tahun 2021 secara spesifik." 
+    }), {
       status: 400,
-      headers: { "Content-Type": "application/json" }
+      headers: { 
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=3600"
+      }
     });
   }
 
@@ -43,25 +51,55 @@ export async function onRequest(context) {
     ).bind(`${year}-%`).all();
 
     if (!results || results.length === 0) {
-      return new Response(JSON.stringify([]), {
-        status: 200,
+      // Fetch available year range (Min Year and Max Year) from database
+      const rangeResult = await context.env.DB.prepare(
+        "SELECT SUBSTR(MIN(date), 1, 4) as minYear, SUBSTR(MAX(date), 1, 4) as maxYear FROM holidays"
+      ).first();
+
+      const minYear = rangeResult?.minYear;
+      const maxYear = rangeResult?.maxYear;
+
+      let errorMessage = `Tahun ${year} tidak ditemukan di database.`;
+      if (minYear && maxYear) {
+        errorMessage = `Tahun ${year} tidak ditemukan di database. Data yang tersedia saat ini hanya dari tahun ${minYear} hingga ${maxYear}.`;
+      }
+
+      return new Response(JSON.stringify({ error: errorMessage }), {
+        status: 404,
         headers: { 
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-          "Cache-Control": "public, max-age=604800, s-maxage=2592000", // Browser: 7 days, Edge: 30 days
-          "X-Cache": "MISS"
+          "Cache-Control": "public, max-age=3600"
         }
       });
     }
 
-    // Normalize is_leave_together to boolean format expected by the frontend client
-    const mappedResults = results.map(r => ({
-      date: r.date,
-      name: r.name,
-      is_leave_together: r.is_leave_together === 1 || r.is_leave_together === true
-    }));
+    // Normalize is_leave_together to boolean and count holiday/leave types
+    let jumlahHariLibur = 0;
+    let jumlahCuti = 0;
 
-    const response = new Response(JSON.stringify(mappedResults), {
+    const mappedResults = results.map(r => {
+      const isLeave = r.is_leave_together === 1 || r.is_leave_together === true || r.name.toLowerCase().includes("cuti bersama");
+      if (isLeave) {
+        jumlahCuti++;
+      } else {
+        jumlahHariLibur++;
+      }
+      return {
+        date: r.date,
+        name: r.name,
+        is_leave_together: isLeave
+      };
+    });
+
+    const payload = {
+      nama_pemilik: "Syamsul Bahri",
+      jumlah_hari_libur: jumlahHariLibur,
+      jumlah_cuti: jumlahCuti,
+      data: mappedResults
+    };
+
+    const response = new Response(JSON.stringify(payload), {
       status: 200,
       headers: { 
         "Content-Type": "application/json",
@@ -84,7 +122,10 @@ export async function onRequest(context) {
   } catch (err) {
     return new Response(JSON.stringify({ error: err.message }), {
       status: 500,
-      headers: { "Content-Type": "application/json" }
+      headers: { 
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
     });
   }
 }

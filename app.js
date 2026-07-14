@@ -173,7 +173,12 @@ async function fetchHolidays(year) {
     }
 
     const data = await response.json();
-    if (Array.isArray(data)) {
+    if (data && Array.isArray(data.data)) {
+      holidaysCache[targetYear] = data.data;
+      holidays = data.data;
+      console.log(`Successfully loaded holidays for year ${targetYear} from Cloudflare D1.`);
+      return;
+    } else if (Array.isArray(data)) {
       holidaysCache[targetYear] = data;
       holidays = data;
       console.log(`Successfully loaded holidays for year ${targetYear} from Cloudflare D1.`);
