@@ -257,6 +257,10 @@
           <span class="w-3.5 h-3.5 rounded-md border-2 border-brand-500 block"></span>
           <span>Hari Ini</span>
         </span>
+        <span class="flex items-center space-x-1.5">
+          <i data-lucide="star" class="w-3.5 h-3.5 text-indigo-500 fill-indigo-500"></i>
+          <span>Hari Besar</span>
+        </span>
       </div>
 
     </div>
@@ -324,6 +328,32 @@
           <div class="text-center text-slate-400 dark:text-slate-500 text-sm py-12">
             <i data-lucide="smile" class="w-10 h-10 mx-auto mb-2 text-slate-300 dark:text-slate-700"></i>
             Tidak ada hari libur di bulan ini
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Month's Important Days List -->
+      <div
+        class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800/80 p-5 shadow-sm flex-grow flex flex-col min-h-[250px]">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center space-x-2">
+            <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-500">
+              <i data-lucide="flag" class="w-4.5 h-4.5"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 dark:text-white">Daftar Hari Besar Bulan Ini</h3>
+          </div>
+          <span id="important-count-badge"
+            class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400">0
+            Hari</span>
+        </div>
+
+        <!-- Important Days Scroll List -->
+        <div id="important-list"
+          class="flex-grow overflow-y-auto max-h-[250px] md:max-h-[300px] pr-1 mt-4 space-y-3 no-scrollbar">
+          <!-- Dynamically populated list -->
+          <div class="text-center text-slate-400 dark:text-slate-500 text-sm py-8">
+            <i data-lucide="coffee" class="w-8 h-8 mx-auto mb-2 text-slate-300 dark:text-slate-700"></i>
+            Tidak ada hari besar di bulan ini
           </div>
         </div>
       </div>

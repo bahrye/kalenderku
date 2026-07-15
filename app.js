@@ -1,5 +1,6 @@
 // State Management
 let holidays = [];
+let importantDays = [];
 let currentYear = 2026;
 let currentMonth = 6; // July (0-indexed)
 let selectedDate = new Date(2026, 6, 11); // Defaults to 11 July 2026
@@ -7,6 +8,7 @@ const todayDate = new Date(2026, 6, 11); // Standard today reference as per cont
 
 // Cache for storing loaded holidays data per year to avoid repeated fetch requests
 const holidaysCache = {};
+const importantDaysCache = {};
 
 // Animation state for rendering
 let renderAnimation = 'fade';
@@ -46,6 +48,8 @@ const detailHolidayContainer = document.getElementById("detail-holiday-container
 // Holidays List Elements
 const holidaysList = document.getElementById("holidays-list");
 const holidayCountBadge = document.getElementById("holiday-count-badge");
+const importantList = document.getElementById("important-list");
+const importantCountBadge = document.getElementById("important-count-badge");
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
@@ -58,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchMetadata();
 
-  fetchHolidays().then(() => {
+  Promise.all([fetchHolidays(), fetchImportantDays()]).then(() => {
     renderApp();
     setupEventListeners();
   });
@@ -210,6 +214,39 @@ async function fetchHolidays(year) {
   }
 }
 
+// Fetch Important Days Data (Hari Besar Nasional & Internasional)
+async function fetchImportantDays(year) {
+  const targetYear = year || currentYear;
+  if (importantDaysCache[targetYear]) {
+    importantDays = importantDaysCache[targetYear];
+    return;
+  }
+
+  try {
+    const response = await fetch(`public/data/important_days_${targetYear}.json`);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Response lokal bukan JSON");
+    }
+
+    const localData = await response.json();
+    // Assuming structure is { data: [...] } based on sync-important-days.js
+    if (localData && Array.isArray(localData.data)) {
+      importantDaysCache[targetYear] = localData.data;
+      importantDays = localData.data;
+    } else {
+      importantDaysCache[targetYear] = [];
+      importantDays = [];
+    }
+  } catch (err) {
+    console.warn(`Gagal memuat data hari besar untuk tahun ${targetYear}:`, err.message || err);
+    importantDaysCache[targetYear] = [];
+    importantDays = [];
+  }
+}
+
 // Setup Event Listeners
 function setupEventListeners() {
   btnPrev.addEventListener("click", () => {
@@ -232,7 +269,7 @@ function setupEventListeners() {
   selectYear.addEventListener("change", async (e) => {
     hideTooltip();
     currentYear = parseInt(e.target.value);
-    await fetchHolidays(currentYear);
+    await Promise.all([fetchHolidays(currentYear), fetchImportantDays(currentYear)]);
     renderAnimation = 'fade';
     renderApp();
   });
@@ -248,7 +285,7 @@ function setupEventListeners() {
     
     if (currentYear !== targetYear) {
       currentYear = targetYear;
-      await fetchHolidays(currentYear);
+      await Promise.all([fetchHolidays(currentYear), fetchImportantDays(currentYear)]);
     }
     
     renderAnimation = 'fade';
@@ -320,7 +357,7 @@ async function navigateMonth(direction) {
   if (currentYear !== targetYear) {
     currentYear = targetYear;
     selectYear.value = currentYear;
-    await fetchHolidays(currentYear);
+    await Promise.all([fetchHolidays(currentYear), fetchImportantDays(currentYear)]);
   }
 
     selectMonth.value = currentMonth;
@@ -337,6 +374,7 @@ function renderApp() {
   renderCalendarGrid();
   updateDetailCard();
   updateHolidaysList();
+  updateImportantDaysList();
   
   // Update API URL example to use current year
   const apiUrlText = document.getElementById("api-url-text");
@@ -389,9 +427,12 @@ function renderCalendarGrid() {
     const dayOfWeek = currentDate.getDay(); // 0 = Minggu, 6 = Sabtu
     const dateString = formatDateString(currentDate);
 
-    // Find all holidays for this date
+    // Find all holidays and important days for this date
     const dayHolidays = holidays.filter(h => h.date === dateString);
     const holiday = dayHolidays[0];
+    
+    const dayImportant = importantDays.filter(h => h.date === dateString);
+    const important = dayImportant[0];
 
     const cell = document.createElement("button");
     cell.type = "button";
@@ -440,18 +481,31 @@ function renderCalendarGrid() {
     cell.appendChild(numEl);
 
     // Indicator Dot/Badge inside cell
+    const indicatorsContainer = document.createElement("div");
+    indicatorsContainer.className = "flex space-x-1 mt-1 items-center justify-center";
+
     if (holiday) {
       const dot = document.createElement("span");
-      dot.className = `w-1.5 h-1.5 rounded-full ${holiday.is_leave_together ? 'bg-emerald-500' : 'bg-rose-500'} mt-1`;
-      cell.appendChild(dot);
-    } else {
+      dot.className = `w-1.5 h-1.5 rounded-full ${holiday.is_leave_together ? 'bg-emerald-500' : 'bg-rose-500'}`;
+      indicatorsContainer.appendChild(dot);
+    }
+    
+    if (important) {
+      const star = document.createElement("span");
+      star.innerHTML = `<i data-lucide="star" class="w-2.5 h-2.5 text-indigo-500 fill-indigo-500"></i>`;
+      indicatorsContainer.appendChild(star);
+    }
+
+    if (!holiday && !important) {
       // Subtle Javanese pasaran name (very small) for normal days
       const pasaranName = getJavanesePasaran(currentDate);
       const pasaranEl = document.createElement("span");
-      pasaranEl.className = "text-[9px] font-normal text-slate-400 dark:text-slate-500 mt-1 uppercase tracking-tight";
+      pasaranEl.className = "text-[9px] font-normal text-slate-400 dark:text-slate-500 uppercase tracking-tight";
       pasaranEl.innerText = pasaranName.substring(0, 3);
-      cell.appendChild(pasaranEl);
+      indicatorsContainer.appendChild(pasaranEl);
     }
+    
+    cell.appendChild(indicatorsContainer);
 
     // Click handler to select date
     cell.addEventListener("click", (e) => {
@@ -511,17 +565,38 @@ function updateDetailCard() {
   // Holiday details
   const dateString = formatDateString(selectedDate);
   const holiday = holidays.find(h => h.date === dateString);
+  const dayImportantDays = importantDays.filter(h => h.date === dateString);
 
-  if (holiday) {
-    detailHolidayName.innerText = holiday.name;
+  if (holiday || dayImportantDays.length > 0) {
     detailHolidayContainer.classList.remove("border-white/10");
-    if (holiday.is_leave_together) {
-      detailHolidayContainer.className = "mt-6 pt-4 border-t border-emerald-400/40 text-emerald-100";
-      detailHolidayName.className = "text-sm font-bold mt-0.5 text-emerald-100";
+    
+    let htmlContent = '';
+    
+    if (holiday) {
+      if (holiday.is_leave_together) {
+        detailHolidayContainer.className = "mt-6 pt-4 border-t border-emerald-400/40 text-emerald-100";
+        htmlContent += `<p class="text-sm font-bold mt-0.5 text-emerald-100">${holiday.name}</p>`;
+      } else {
+        detailHolidayContainer.className = "mt-6 pt-4 border-t border-rose-400/40 text-rose-100";
+        htmlContent += `<p class="text-sm font-bold mt-0.5 text-rose-100">${holiday.name}</p>`;
+      }
     } else {
-      detailHolidayContainer.className = "mt-6 pt-4 border-t border-rose-400/40 text-rose-100";
-      detailHolidayName.className = "text-sm font-bold mt-0.5 text-rose-100";
+      detailHolidayContainer.className = "mt-6 pt-4 border-t border-indigo-400/40 text-indigo-100";
+      // If weekend but no holiday, mention weekend
+      if (dayIndex === 0) {
+        htmlContent += `<p class="text-sm font-medium mt-0.5 text-indigo-100 opacity-80">Libur Akhir Pekan (Minggu)</p>`;
+      } else if (dayIndex === 6) {
+        htmlContent += `<p class="text-sm font-medium mt-0.5 text-indigo-100 opacity-80">Libur Akhir Pekan (Sabtu)</p>`;
+      } else {
+        htmlContent += `<p class="text-sm font-medium mt-0.5 text-indigo-100 opacity-80">Hari Kerja Biasa</p>`;
+      }
     }
+    
+    dayImportantDays.forEach(imp => {
+       htmlContent += `<p class="text-sm font-bold mt-2 text-indigo-100 flex items-start space-x-1.5"><i data-lucide="star" class="w-4 h-4 mt-0.5 fill-indigo-200"></i> <span>${imp.name}</span></p>`;
+    });
+    
+    detailHolidayName.innerHTML = htmlContent;
   } else {
     detailHolidayContainer.className = "mt-6 pt-4 border-t border-white/20 text-indigo-100";
     if (dayIndex === 0) {
@@ -603,6 +678,64 @@ function updateHolidaysList() {
     });
 
     holidaysList.appendChild(holidayItem);
+  });
+}
+
+// Populate the important days list for active month
+function updateImportantDaysList() {
+  importantList.innerHTML = "";
+
+  const activeMonthString = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}`;
+  const monthlyImportantDays = importantDays.filter(h => h.date.startsWith(activeMonthString));
+
+  monthlyImportantDays.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  importantCountBadge.innerText = `${monthlyImportantDays.length} Hari`;
+
+  if (monthlyImportantDays.length === 0) {
+    importantList.innerHTML = `
+      <div class="text-center text-slate-400 dark:text-slate-500 text-sm py-8">
+        <i data-lucide="coffee" class="w-8 h-8 mx-auto mb-2 text-slate-300 dark:text-slate-700"></i>
+        Tidak ada hari besar di bulan ini
+      </div>
+    `;
+    return;
+  }
+
+  monthlyImportantDays.forEach(important => {
+    const hDate = new Date(important.date);
+    const dateNum = hDate.getDate();
+    const dayName = dayNames[hDate.getDay()];
+    const pasaran = getJavanesePasaran(hDate);
+
+    const importantItem = document.createElement("button");
+    importantItem.type = "button";
+    importantItem.className = "w-full text-left flex items-center space-x-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition duration-150 border border-transparent hover:border-slate-200 dark:hover:border-slate-700/50";
+    
+    const isSelected = selectedDate.getDate() === dateNum && selectedDate.getMonth() === currentMonth && selectedDate.getFullYear() === currentYear;
+    if (isSelected) {
+      importantItem.className += " bg-slate-100 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700";
+    }
+
+    importantItem.innerHTML = `
+      <div class="w-10 h-10 rounded-lg flex flex-col items-center justify-center font-bold text-sm shrink-0 bg-indigo-100 dark:bg-indigo-950/40 text-indigo-800 dark:text-indigo-300">
+        <span>${dateNum}</span>
+      </div>
+      <div class="flex-grow min-w-0">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">${dayName} ${pasaran}</span>
+          <i data-lucide="star" class="w-3 h-3 text-indigo-400 fill-indigo-400"></i>
+        </div>
+        <p class="text-sm font-semibold text-slate-800 dark:text-white truncate mt-0.5">${important.name}</p>
+      </div>
+    `;
+
+    importantItem.addEventListener("click", () => {
+      selectedDate = hDate;
+      renderApp();
+    });
+
+    importantList.appendChild(importantItem);
   });
 }
 
