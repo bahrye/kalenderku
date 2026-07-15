@@ -1,0 +1,77 @@
+[
+  {
+    "date": "2000-01-01",
+    "name": "Tahun Baru Masehi 2000",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-01-08",
+    "name": "Hari Raya Idul Fitri 1420 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-01-09",
+    "name": "Hari Raya Idul Fitri 1420 H (Hari Kedua)",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-03-16",
+    "name": "Hari Raya Idul Adha 1420 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-04-04",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1922",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-04-06",
+    "name": "Tahun Baru Islam 1421 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-04-21",
+    "name": "Wafat Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-06-01",
+    "name": "Kenaikan Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-06-11",
+    "name": "Hari Raya Waisak 2544 BE",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-06-15",
+    "name": "Maulid Nabi Muhammad SAW 1421 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-08-17",
+    "name": "Hari Kemerdekaan Republik Indonesia",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-10-26",
+    "name": "Isra Mikraj Nabi Muhammad SAW 1421 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-12-25",
+    "name": "Hari Raya Natal",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-12-27",
+    "name": "Hari Raya Idul Fitri 1421 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2000-12-28",
+    "name": "Hari Raya Idul Fitri 1421 H (Hari Kedua)",
+    "is_leave_together": false
+  }
+]

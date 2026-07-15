@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2010-01-01",
+    "name": "Tahun Baru Masehi 2010",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-02-14",
+    "name": "Tahun Baru Imlek 2561",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-02-26",
+    "name": "Maulid Nabi Muhammad SAW 1431 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-03-16",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1932",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-04-02",
+    "name": "Wafat Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-05-13",
+    "name": "Kenaikan Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-05-28",
+    "name": "Hari Raya Waisak 2554 BE",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-07-09",
+    "name": "Isra Mikraj Nabi Muhammad SAW 1431 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-08-17",
+    "name": "Hari Kemerdekaan Republik Indonesia",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-09-10",
+    "name": "Hari Raya Idul Fitri 1431 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-09-11",
+    "name": "Hari Raya Idul Fitri 1431 H (Hari Kedua)",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-11-17",
+    "name": "Hari Raya Idul Adha 1431 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-12-07",
+    "name": "Tahun Baru Islam 1432 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2010-12-25",
+    "name": "Hari Raya Natal",
+    "is_leave_together": false
+  }
+]

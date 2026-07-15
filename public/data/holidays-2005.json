@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2005-01-01",
+    "name": "Tahun Baru Masehi 2005",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-01-21",
+    "name": "Hari Raya Idul Adha 1425 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-02-09",
+    "name": "Tahun Baru Imlek 2556",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-02-10",
+    "name": "Tahun Baru Islam 1426 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-03-11",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1927",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-03-25",
+    "name": "Wafat Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-04-21",
+    "name": "Maulid Nabi Muhammad SAW 1426 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-05-05",
+    "name": "Kenaikan Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-05-23",
+    "name": "Hari Raya Waisak 2549 BE",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-08-17",
+    "name": "Hari Kemerdekaan Republik Indonesia",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-09-02",
+    "name": "Isra Mikraj Nabi Muhammad SAW 1426 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-11-03",
+    "name": "Hari Raya Idul Fitri 1426 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-11-04",
+    "name": "Hari Raya Idul Fitri 1426 H (Hari Kedua)",
+    "is_leave_together": false
+  },
+  {
+    "date": "2005-12-25",
+    "name": "Hari Raya Natal",
+    "is_leave_together": false
+  }
+]

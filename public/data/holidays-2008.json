@@ -1,0 +1,77 @@
+[
+  {
+    "date": "2008-01-01",
+    "name": "Tahun Baru Masehi 2008",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-01-10",
+    "name": "Tahun Baru Islam 1429 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-02-07",
+    "name": "Tahun Baru Imlek 2559",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-03-07",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1930",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-03-20",
+    "name": "Maulid Nabi Muhammad SAW 1429 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-03-21",
+    "name": "Wafat Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-05-01",
+    "name": "Kenaikan Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-05-20",
+    "name": "Hari Raya Waisak 2552 BE",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-07-31",
+    "name": "Isra Mikraj Nabi Muhammad SAW 1429 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-08-17",
+    "name": "Hari Kemerdekaan Republik Indonesia",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-10-01",
+    "name": "Hari Raya Idul Fitri 1429 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-10-02",
+    "name": "Hari Raya Idul Fitri 1429 H (Hari Kedua)",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-12-08",
+    "name": "Hari Raya Idul Adha 1429 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-12-25",
+    "name": "Hari Raya Natal",
+    "is_leave_together": false
+  },
+  {
+    "date": "2008-12-29",
+    "name": "Tahun Baru Islam 1430 H",
+    "is_leave_together": false
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2003-01-01",
+    "name": "Tahun Baru Masehi 2003",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-02-01",
+    "name": "Tahun Baru Imlek 2554",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-02-11",
+    "name": "Hari Raya Idul Adha 1423 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-03-04",
+    "name": "Tahun Baru Islam 1424 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-04-01",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1925",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-04-18",
+    "name": "Wafat Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-05-13",
+    "name": "Maulid Nabi Muhammad SAW 1424 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-05-15",
+    "name": "Hari Raya Waisak 2547 BE",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-05-29",
+    "name": "Kenaikan Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-08-17",
+    "name": "Hari Kemerdekaan Republik Indonesia",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-09-24",
+    "name": "Isra Mikraj Nabi Muhammad SAW 1424 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-11-25",
+    "name": "Hari Raya Idul Fitri 1424 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-11-26",
+    "name": "Hari Raya Idul Fitri 1424 H (Hari Kedua)",
+    "is_leave_together": false
+  },
+  {
+    "date": "2003-12-25",
+    "name": "Hari Raya Natal",
+    "is_leave_together": false
+  }
+]

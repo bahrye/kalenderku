@@ -1,0 +1,67 @@
+[
+  {
+    "date": "2002-01-01",
+    "name": "Tahun Baru Masehi 2002",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-02-22",
+    "name": "Hari Raya Idul Adha 1422 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-03-14",
+    "name": "Hari Raya Nyepi Tahun Baru Saka 1924",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-03-15",
+    "name": "Tahun Baru Islam 1423 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-03-29",
+    "name": "Wafat Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-05-09",
+    "name": "Kenaikan Isa Almasih",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-05-20",
+    "name": "Hari Raya Waisak 2546 BE",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-05-24",
+    "name": "Maulid Nabi Muhammad SAW 1423 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-08-17",
+    "name": "Hari Kemerdekaan Republik Indonesia",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-10-04",
+    "name": "Isra Mikraj Nabi Muhammad SAW 1423 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-12-05",
+    "name": "Hari Raya Idul Fitri 1423 H",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-12-06",
+    "name": "Hari Raya Idul Fitri 1423 H (Hari Kedua)",
+    "is_leave_together": false
+  },
+  {
+    "date": "2002-12-25",
+    "name": "Hari Raya Natal",
+    "is_leave_together": false
+  }
+]
