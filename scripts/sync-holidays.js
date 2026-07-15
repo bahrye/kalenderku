@@ -1,5 +1,29 @@
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
+
+// Helper to fetch data reliably in GitHub Actions (avoids Node 18+ IPv6 fetch timeouts)
+const fetchData = (url) => {
+  return new Promise((resolve, reject) => {
+    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KalenderkuBot/1.0)' } }, (res) => {
+      if (res.statusCode < 200 || res.statusCode >= 300) {
+        return reject(new Error(`HTTP status ${res.statusCode}`));
+      }
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(e);
+        }
+      });
+    }).on('error', reject).setTimeout(10000, function() {
+        this.destroy();
+        reject(new Error('Request Timeout'));
+    });
+  });
+};
 
 // Configure years to sync (2011 to currentYear + 2)
 const minYear = 2011;
@@ -26,14 +50,13 @@ async function run() {
       if (!apiUrl) {
         throw new Error("HOLIDAY_API_URL environment variable is not set.");
       }
-      const response = await fetch(`${apiUrl}?year=${year}`, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KalenderkuBot/1.0)' }
-      });
-      if (!response.ok) {
-        console.warn(`Failed to fetch from API for year ${year}: HTTP ${response.status}`);
+      let apiData = null;
+      try {
+        apiData = await fetchData(`${apiUrl}?year=${year}`);
+      } catch (e) {
+        console.warn(`Failed to fetch from API for year ${year}: ${e.message}`);
         continue;
       }
-      const apiData = await response.json();
       if (!Array.isArray(apiData)) {
         console.warn(`Invalid API response format for year ${year}`);
         continue;
@@ -66,12 +89,8 @@ async function run() {
 
       if (importantApiUrl) {
         try {
-          const resImportant = await fetch(`${importantApiUrl}?year=${year}`, {
-            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KalenderkuBot/1.0)' }
-          });
-          if (resImportant.ok) {
-            const importantApiData = await resImportant.json();
-            if (Array.isArray(importantApiData)) {
+          const importantApiData = await fetchData(`${importantApiUrl}?year=${year}`);
+          if (Array.isArray(importantApiData)) {
               const importantDays = importantApiData.filter(h => h.type === 'hari_besar_internasional' || h.type === 'hari_besar_nasional');
               
               let importantLocalDataString = '';
