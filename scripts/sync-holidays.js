@@ -118,7 +118,6 @@ async function run() {
                 },
                 data: importantDays
               }, null, 2);
-            }
           }
         } catch (err) {
           console.error(`Error fetching important days for year ${year}:`, err);
