@@ -28,6 +28,7 @@ jobs:
       run: node scripts/sync-holidays.js
       env:
         HOLIDAY_API_URL: ${{ secrets.HOLIDAY_API_URL }}
+        IMPORTANT_DAYS_API_URL: ${{ secrets.IMPORTANT_DAYS_API_URL }}
 
     - name: Sync Metadata to D1 (always runs)
       run: |
