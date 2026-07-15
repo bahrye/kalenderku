@@ -87,42 +87,7 @@ async function run() {
       const importantFilePath = path.join(dataDir, `important_days_${year}.json`);
       let importantOutputString = '';
 
-      if (importantApiUrl) {
-        try {
-          const importantApiData = await fetchData(`${importantApiUrl}?year=${year}`);
-          if (Array.isArray(importantApiData)) {
-              const importantDays = importantApiData.filter(h => h.type === 'hari_besar_internasional' || h.type === 'hari_besar_nasional');
-              
-              let importantLocalDataString = '';
-              if (fs.existsSync(importantFilePath)) {
-                importantLocalDataString = fs.readFileSync(importantFilePath, 'utf8');
-                try {
-                  const localParsed = JSON.parse(importantLocalDataString);
-                  if (JSON.stringify(localParsed.data) !== JSON.stringify(importantDays)) {
-                    hasImportantChanges = true;
-                  }
-                } catch(e) {
-                  hasImportantChanges = true;
-                }
-              } else {
-                hasImportantChanges = true;
-              }
 
-              importantOutputString = JSON.stringify({
-                metadata: {
-                  source: importantApiUrl,
-                  filtered_types: ["hari_besar_internasional", "hari_besar_nasional"],
-                  year: year,
-                  total_records: importantDays.length,
-                  generated_at: new Date().toISOString()
-                },
-                data: importantDays
-              }, null, 2);
-          }
-        } catch (err) {
-          console.error(`Error fetching important days for year ${year}:`, err);
-        }
-      }
 
       // If data is new or has changed
       if (localDataString !== normalizedDataString) {
@@ -143,13 +108,7 @@ async function run() {
         console.log(`Year ${year} holidays is already up to date.`);
       }
 
-      if (hasImportantChanges) {
-        console.log(`Changes detected for year ${year} (important days). Updating local JSON file...`);
-        fs.writeFileSync(importantFilePath, importantOutputString, 'utf8');
-        hasChanges = true;
-      } else {
-        console.log(`Year ${year} important days is already up to date.`);
-      }
+
     } catch (err) {
       console.error(`Error syncing holidays for year ${year}:`, err);
     }
