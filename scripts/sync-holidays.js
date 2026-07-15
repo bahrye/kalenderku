@@ -26,7 +26,9 @@ async function run() {
       if (!apiUrl) {
         throw new Error("HOLIDAY_API_URL environment variable is not set.");
       }
-      const response = await fetch(`${apiUrl}?year=${year}`);
+      const response = await fetch(`${apiUrl}?year=${year}`, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KalenderkuBot/1.0)' }
+      });
       if (!response.ok) {
         console.warn(`Failed to fetch from API for year ${year}: HTTP ${response.status}`);
         continue;
@@ -64,7 +66,9 @@ async function run() {
 
       if (importantApiUrl) {
         try {
-          const resImportant = await fetch(`${importantApiUrl}?year=${year}`);
+          const resImportant = await fetch(`${importantApiUrl}?year=${year}`, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KalenderkuBot/1.0)' }
+          });
           if (resImportant.ok) {
             const importantApiData = await resImportant.json();
             if (Array.isArray(importantApiData)) {
