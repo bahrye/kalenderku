@@ -21,6 +21,17 @@ Kalenderku adalah aplikasi web interaktif yang menampilkan kalender Indonesia le
 - **Database:** Cloudflare D1 (Serverless SQLite).
 - **Automasi:** GitHub Actions, Node.js scripts.
 
+## 📡 Sumber Data & Sinkronisasi
+
+Data kalender hari libur dan cuti bersama di Indonesia diperbarui secara otomatis. 
+Selain itu, aplikasi ini juga menampilkan **Hari Besar Nasional & Internasional** yang bersumber dari API: [https://cal.weruka.dev/](https://cal.weruka.dev/).
+
+Untuk melakukan sinkronisasi data hari besar tersebut secara manual, Anda bisa menarik datanya langsung dari terminal dengan menjalankan skrip berikut:
+```bash
+node scripts/sync-important-days.js
+```
+Skrip ini akan mengunduh data hari besar terbaru dan menyimpannya ke dalam folder `public/data/` dalam format JSON.
+
 ## 🚀 Cara Menjalankan Secara Lokal (Development)
 
 Untuk mengembangkan dan menjalankan proyek ini di komputer Anda sendiri:
