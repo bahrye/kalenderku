@@ -791,7 +791,7 @@ function createTooltip() {
   if (tooltipEl) return;
   tooltipEl = document.createElement("div");
   tooltipEl.id = "calendar-tooltip";
-  tooltipEl.className = "absolute hidden z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border transition-all duration-150 ease-out scale-95 opacity-0 pointer-events-auto";
+  tooltipEl.className = "absolute hidden z-40 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border transition-all duration-150 ease-out scale-95 opacity-0 pointer-events-auto";
   document.body.appendChild(tooltipEl);
 
   // Close when clicking outside of the calendar cells
@@ -837,9 +837,9 @@ function showTooltip(cell, dayHolidays) {
   // Set visual theme based on whether there's any national holiday
   const hasNationalHoliday = dayHolidays.some(h => !h.is_leave_together);
   if (hasNationalHoliday) {
-    tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-rose-500/20 bg-rose-900/95 dark:bg-rose-950/95 transition-all duration-150 ease-out pointer-events-auto";
+    tooltipEl.className = "absolute z-40 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-rose-500/20 bg-rose-900/95 dark:bg-rose-950/95 transition-all duration-150 ease-out pointer-events-auto";
   } else {
-    tooltipEl.className = "absolute z-50 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-emerald-500/20 bg-emerald-900/95 dark:bg-emerald-950/95 transition-all duration-150 ease-out pointer-events-auto";
+    tooltipEl.className = "absolute z-40 p-3.5 rounded-xl shadow-xl backdrop-blur-md text-white text-xs max-w-[220px] border border-emerald-500/20 bg-emerald-900/95 dark:bg-emerald-950/95 transition-all duration-150 ease-out pointer-events-auto";
   }
 
   tooltipEl.innerHTML = contentHtml;
