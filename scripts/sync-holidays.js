@@ -81,12 +81,6 @@ async function run() {
 
       const normalizedDataString = JSON.stringify(normalizedData, null, 2);
 
-      // Process Important Days (fetch from different API)
-      let hasImportantChanges = false;
-      const importantApiUrl = process.env.IMPORTANT_DAYS_API_URL;
-      const importantFilePath = path.join(dataDir, `important_days_${year}.json`);
-      let importantOutputString = '';
-
 
 
       // If data is new or has changed
