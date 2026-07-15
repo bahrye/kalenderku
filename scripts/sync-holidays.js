@@ -26,7 +26,7 @@ const fetchData = (url) => {
 };
 
 // Configure years to sync (2011 to currentYear + 2)
-const minYear = 2011;
+const minYear = 2000;
 const maxYear = new Date().getFullYear() + 2;
 
 const dataDir = path.join(__dirname, '..', 'public', 'data');

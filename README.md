@@ -4,7 +4,7 @@
 <br>
 **Akses langsung aplikasi web di sini: [https://kalender-id.pages.dev/](https://kalender-id.pages.dev/)**
 
-Kalenderku adalah aplikasi web interaktif yang menampilkan kalender Indonesia lengkap dengan hari libur nasional dan cuti bersama dari tahun 2011 hingga tahun-tahun mendatang. Proyek ini dibangun untuk berjalan super cepat dengan memanfaatkan infrastruktur Cloudflare (Pages, Workers, dan D1).
+Kalenderku adalah aplikasi web interaktif yang menampilkan kalender Indonesia lengkap dengan hari libur nasional dan cuti bersama dari tahun 2000 hingga tahun-tahun mendatang. Proyek ini dibangun untuk berjalan super cepat dengan memanfaatkan infrastruktur Cloudflare (Pages, Workers, dan D1).
 
 ## ✨ Fitur Utama
 

@@ -12,7 +12,7 @@ const holidaysCache = {};
 let renderAnimation = 'fade';
 
 // Year boundaries configuration
-const minYear = 2011;
+const minYear = 2000;
 const maxYear = todayDate.getFullYear() + 2;
 
 // Indonesian Names
