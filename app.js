@@ -681,11 +681,18 @@ function updateHolidaysList() {
 
     // Apply marquee if text is too long
     const titleP = holidayItem.querySelector('.event-title');
-    if (titleP && titleP.scrollWidth > titleP.clientWidth) {
-      titleP.innerHTML = `<marquee scrollamount="4" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">${holiday.name}</marquee>`;
-      titleP.classList.remove('truncate');
-      titleP.classList.add('overflow-hidden', 'whitespace-nowrap');
-    }
+    const checkOverflow = () => {
+      if (titleP && titleP.scrollWidth > titleP.clientWidth && !titleP.querySelector('marquee')) {
+        titleP.innerHTML = `<marquee scrollamount="4" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">${holiday.name}</marquee>`;
+        titleP.classList.remove('truncate');
+        titleP.classList.add('overflow-hidden', 'whitespace-nowrap');
+      }
+    };
+    
+    checkOverflow();
+    // Retry after a short delay to account for web fonts/Tailwind CDN loading
+    setTimeout(checkOverflow, 500);
+    setTimeout(checkOverflow, 1500);
   });
 }
 
@@ -747,11 +754,17 @@ function updateImportantDaysList() {
 
     // Apply marquee if text is too long
     const titleP = importantItem.querySelector('.event-title');
-    if (titleP && titleP.scrollWidth > titleP.clientWidth) {
-      titleP.innerHTML = `<marquee scrollamount="4" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">${important.name}</marquee>`;
-      titleP.classList.remove('truncate');
-      titleP.classList.add('overflow-hidden', 'whitespace-nowrap');
-    }
+    const checkOverflow = () => {
+      if (titleP && titleP.scrollWidth > titleP.clientWidth && !titleP.querySelector('marquee')) {
+        titleP.innerHTML = `<marquee scrollamount="4" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">${important.name}</marquee>`;
+        titleP.classList.remove('truncate');
+        titleP.classList.add('overflow-hidden', 'whitespace-nowrap');
+      }
+    };
+    
+    checkOverflow();
+    setTimeout(checkOverflow, 500);
+    setTimeout(checkOverflow, 1500);
   });
 }
 
