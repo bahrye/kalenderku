@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "source": "https://cal.weruka.dev/api/holidays",
+    "filtered_types": [
+      "hari_besar_internasional",
+      "hari_besar_nasional"
+    ],
+    "year": 2027,
+    "total_records": 0,
+    "generated_at": "2026-07-15T09:36:59.869Z"
+  },
+  "data": []
+}

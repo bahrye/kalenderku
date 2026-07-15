@@ -1,0 +1,1220 @@
+{
+  "metadata": {
+    "source": "https://cal.weruka.dev/api/holidays",
+    "filtered_types": [
+      "hari_besar_internasional",
+      "hari_besar_nasional"
+    ],
+    "year": 2025,
+    "total_records": 201,
+    "generated_at": "2026-07-15T09:36:59.594Z"
+  },
+  "data": [
+    {
+      "date": "2025-01-01",
+      "name": "Tahun Baru Masehi (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-01",
+      "name": "Hari Perdamaian Dunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-03",
+      "name": "Hari Departemen Agama",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-04",
+      "name": "Hari Konvensi Internasional Tentang Penghapusan Segala Bentuk Diskriminasi Rasial",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-05",
+      "name": "Hari Korps Wanita Angkatan Laut (KOWAL)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-10",
+      "name": "Hari Lingkungan Hidup Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-10",
+      "name": "Hari Gerakan Satu Juta Pohon",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-10",
+      "name": "Hari Tritura",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-13",
+      "name": "Hari HAM Nelayan dan Masyarakat Sipil",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-15",
+      "name": "Hari Darma Samudra",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-25",
+      "name": "Hari Kusta Internasional (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-01-25",
+      "name": "Hari Gizi dan Makanan",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-02",
+      "name": "Hari Lahan Basah Sedunia (Konvensi Ramsar) (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-04",
+      "name": "Hari Kanker Dunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-05",
+      "name": "Hari Peristiwa Kapal Tujuh Provinsi (Zeven Provincien)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-06",
+      "name": "Hari Internasional Nol Toleransi Bagi Praktik Sunat Perempuan",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-09",
+      "name": "Hari Pers Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-09",
+      "name": "Hari Kavaleri",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-13",
+      "name": "Hari Persatuan Farmasi Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-14",
+      "name": "Hari Valentine (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-14",
+      "name": "Hari Peringatan Pembela Tanah Air (PETA)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-20",
+      "name": "Hari Pekerja Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-21",
+      "name": "Hari Bahasa Ibu (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-22",
+      "name": "Hari Istiqlal",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-02-28",
+      "name": "Hari Gizi Nasional Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-01",
+      "name": "Hari Solidaritas LGBT Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-01",
+      "name": "Peristiwa Serangan Umum 1 Maret 1949",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-01",
+      "name": "Hari Kehakiman Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-06",
+      "name": "Hari KOSTRAD (Komando Strategis Angkatan Darat)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-08",
+      "name": "Hari Perempuan (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-09",
+      "name": "Hari Musik Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-10",
+      "name": "Hari Persatuan Artis Film Indonesia (PARFI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-11",
+      "name": "Hari Surat Perintah 11 Maret (SUPERSEMAR)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-13",
+      "name": "Hari Masyarakat Adat",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-15",
+      "name": "Hari Hak Konsumen Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-17",
+      "name": "Hari Perawat Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-18",
+      "name": "Hari Arsitektur Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-20",
+      "name": "Hari Kehutanan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-20",
+      "name": "Hari Dongeng Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-21",
+      "name": "Hari Penghapusan Diskriminasi Rasial (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-21",
+      "name": "Hari Puisi Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-21",
+      "name": "Hari Down Sindrom (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-21",
+      "name": "Hari Hutan Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-22",
+      "name": "Hari Air Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-24",
+      "name": "Hari Tuberkulosis Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-03-30",
+      "name": "Hari Film Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-01",
+      "name": "Hari Bank Dunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-02",
+      "name": "Hari Peduli Autisme Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-02",
+      "name": "Hari Buku Anak Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-06",
+      "name": "Hari Nelayan Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-07",
+      "name": "Hari Kesehatan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-18",
+      "name": "Hari Peringatan Konferensi Asia-Afrika di Bandung",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-19",
+      "name": "Hari Pertahanan Sipil (HANSIP)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-20",
+      "name": "Hari Konsumen Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-21",
+      "name": "Hari Kartini",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-22",
+      "name": "Hari Bumi/Earth Day/KTT Bumi (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-23",
+      "name": "Hari Buku Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-24",
+      "name": "Hari Solidaritas Asia-Afrika (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-24",
+      "name": "Hari Angkutan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-25",
+      "name": "Hari Malaria Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-26",
+      "name": "Hari Kekayaan Intelektual Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-27",
+      "name": "Hari Lembaga Pemasyarakatan Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-28",
+      "name": "Hari Kesehatan dan Keselamatan Kerja (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-28",
+      "name": "Hari Puisi Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-04-29",
+      "name": "Hari Tari (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-01",
+      "name": "Hari Buruh Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-01",
+      "name": "Hari Peringatan Pembebasan Irian Barat",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-02",
+      "name": "Hari Pendidikan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-03",
+      "name": "Hari Kebebasan Pers Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-05",
+      "name": "Hari Bidan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-05",
+      "name": "Hari Lembaga Sosial Desa (LSD)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-08",
+      "name": "Hari Palang Merah Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-10",
+      "name": "Hari Lupus Dunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-15",
+      "name": "Hari Keluarga Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-15",
+      "name": "Malam Renungan AIDS Nusantara (MRAN)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-17",
+      "name": "Hari Internasional Melawan Homophobia (IDAHOT)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-17",
+      "name": "Hari Buku Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-20",
+      "name": "Hari Kebangkitan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-21",
+      "name": "Hari Peringatan Reformasi",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-28",
+      "name": "Hari Kesehatan Perempuan Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-28",
+      "name": "Menstrual Hygiene Day",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-29",
+      "name": "Hari Lanjut Usia Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-29",
+      "name": "Hari Keluarga",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-05-31",
+      "name": "Hari Tanpa Tembakau Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-01",
+      "name": "Hari Anak-anak Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-03",
+      "name": "Hari Pasar Modal Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-05",
+      "name": "Hari Lingkungan Hidup Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-08",
+      "name": "Hari Laut Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-21",
+      "name": "Hari Krida Pertanian",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-24",
+      "name": "Hari Bidan Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-26",
+      "name": "Hari Anti Narkoba Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-06-29",
+      "name": "Hari Keluarga Berencana Nasional (KB)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-01",
+      "name": "Hari Bhayangkara",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-05",
+      "name": "Hari Bank Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-05",
+      "name": "Hari Satelit Palapa",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-12",
+      "name": "Hari Koperasi Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-17",
+      "name": "Hari Keadilan (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-22",
+      "name": "Hari Kejaksaan",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-23",
+      "name": "Hari Anak Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-24",
+      "name": "Peringatan Ratifikasi Konvensi Perempuan (UU No.7/1984)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-07-29",
+      "name": "Hari Bhakti TNI Angkatan Udara",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-01",
+      "name": "Hari ASI Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-05",
+      "name": "Hari Dharma Wanita Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-08",
+      "name": "Hari Ulang Tahun ASEAN",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-09",
+      "name": "Hari Masyarakat Adat (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-10",
+      "name": "Hari Veteran Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-10",
+      "name": "Hari Kebangkitan Teknologi Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-12",
+      "name": "Hari Remaja Internasional (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-14",
+      "name": "Hari Pramuka (Praja Muda Karana)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-17",
+      "name": "Hari Proklamasi Kemerdekaan Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-18",
+      "name": "Hari Konstitusi Republik Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-19",
+      "name": "Hari Departemen Luar Negeri Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-21",
+      "name": "Hari Maritim Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-23",
+      "name": "Hari Internasional Untuk Mengenang Perdagangan Budak dan Penghapusannya (UNESCO)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-08-24",
+      "name": "Hari Televisi Republik Indonesia (TVRI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-01",
+      "name": "Hari Jantung Dunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-01",
+      "name": "Hari Polisi Wanita (POLWAN)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-03",
+      "name": "Hari Palang Merah Indonesia (PMI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-04",
+      "name": "Hari Kesehatan Seksual Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-04",
+      "name": "Hari Pelanggan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-08",
+      "name": "Hari Aksara (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-08",
+      "name": "Hari Pamong Praja",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-09",
+      "name": "Hari Olah Raga Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-11",
+      "name": "Hari Radio Republik Indonesia (RRI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-14",
+      "name": "Hari Kunjung Perpustakaan",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-15",
+      "name": "Hari Demokrasi (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-16",
+      "name": "Hari Ozon (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-17",
+      "name": "Hari Perhubungan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-17",
+      "name": "Hari Palang Merah Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-21",
+      "name": "Hari Perdamaian (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-24",
+      "name": "Hari Agraria Nasional/Hari Tani",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-26",
+      "name": "Hari Kontrasepsi Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-26",
+      "name": "Hari Statistik",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-27",
+      "name": "Hari Pos Telekomunikasi Telegraf (PTT)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-28",
+      "name": "Hari Jantung Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-28",
+      "name": "Hari Kereta Api",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-29",
+      "name": "Hari Aborsi Aman Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-29",
+      "name": "Hari Sarjana Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-09-30",
+      "name": "Hari Peringatan Pemberontakan G30S/PKI",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-01",
+      "name": "Hari Lansia Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-01",
+      "name": "Hari Vegetarian Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-01",
+      "name": "Hari Kesaktian Pancasila",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-02",
+      "name": "Hari Batik Nasional dan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-02",
+      "name": "Hari Susu Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-05",
+      "name": "Hari Guru Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-08",
+      "name": "Hari Tata Ruang Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-10",
+      "name": "Hari Kesehatan Jiwa Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-11",
+      "name": "Hari Anak Perempuan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-14",
+      "name": "Hari Penglihatan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-15",
+      "name": "Hari Hak Asasi Binatang (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-16",
+      "name": "Hari Pangan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-16",
+      "name": "Hari Parlemen Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-17",
+      "name": "Hari Pengentasan Kemiskinan Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-20",
+      "name": "Hari Osteoporosis Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-24",
+      "name": "Hari Dokter Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-24",
+      "name": "Hari Perserikatan Bangsa-Bangsa (PBB)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-26",
+      "name": "Hari Interseks Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-27",
+      "name": "Hari Listrik Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-27",
+      "name": "Hari Penerbangan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-28",
+      "name": "Hari Sumpah Pemuda",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-10-30",
+      "name": "Hari Keuangan",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-03",
+      "name": "Hari Kerohanian",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-03",
+      "name": "Hari Cinta Puspa dan Satwa Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-09",
+      "name": "Hari Seksualitas Muslim Sedunia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-10",
+      "name": "Hari Pahlawan",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-10",
+      "name": "Hari Ganefo",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-11",
+      "name": "Hari Bangunan Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-12",
+      "name": "Hari Kesehatan Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-12",
+      "name": "Hari Ayah Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-14",
+      "name": "Hari Diabetes Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-14",
+      "name": "Hari Brigade Mobil (BRIMOB)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-16",
+      "name": "Hari Toleransi Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-16",
+      "name": "Hari Konferensi Warisan Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-20",
+      "name": "Hari Anak Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-20",
+      "name": "Hari Internasional Untuk Transgender",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-21",
+      "name": "Hari Pohon Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-21",
+      "name": "Hari Televisi Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-22",
+      "name": "Hari Perhubungan Darat Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-25",
+      "name": "Hari Anti Kekerasan Terhadap Perempuan Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-25",
+      "name": "Hari Guru (PGRI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-28",
+      "name": "Hari Menanam Pohon Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-11-29",
+      "name": "Hari KORPRI (Korps Pegawai RI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-01",
+      "name": "Hari AIDS Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-01",
+      "name": "Hari Artileri",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-03",
+      "name": "Hari Difabel Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-05",
+      "name": "Hari Relawan Internasional",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-06",
+      "name": "Hari Tidak Ada Toleransi Bagi Kekerasan Terhadap Perempuan",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-07",
+      "name": "Hari Penerbangan Sipil (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-09",
+      "name": "Hari Pemberantasan Korupsi Sedunia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-09",
+      "name": "Hari Armada Republik Indonesia",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-10",
+      "name": "Hari Hak Asasi Manusia (Internasional)",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-12",
+      "name": "Hari Transmigrasi",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-13",
+      "name": "Hari Kesatuan Nasional (Nusantara)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Hari Juang Kartika TNI-AD (Hari Infanteri)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-17",
+      "name": "Hari Internasional Penghapusan Kekerasan Terhadap Pekerja Seks",
+      "type": "hari_besar_internasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-19",
+      "name": "Hari Bela Negara",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-20",
+      "name": "Hari Kesetiakawanan Sosial Nasional",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-22",
+      "name": "Hari Sosial",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-22",
+      "name": "Hari Ibu",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-23",
+      "name": "Ulang Tahun Perkumpulan Keluarga Berencana Indonesia (PKBI)",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    },
+    {
+      "date": "2025-12-29",
+      "name": "Hari Keanekaragaman Hayati",
+      "type": "hari_besar_nasional",
+      "is_national_holiday": false
+    }
+  ]
+}
