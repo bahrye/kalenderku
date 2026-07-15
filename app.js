@@ -668,7 +668,7 @@ function updateHolidaysList() {
           <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">${dayName} ${pasaran}</span>
           <span class="inline-block w-2.5 h-2.5 rounded-full ${colorClass.split(' ')[0]}"></span>
         </div>
-        <p class="text-sm font-semibold text-slate-800 dark:text-white truncate mt-0.5">${holiday.name}</p>
+        <p class="event-title text-sm font-semibold text-slate-800 dark:text-white truncate mt-0.5">${holiday.name}</p>
       </div>
     `;
 
@@ -678,6 +678,14 @@ function updateHolidaysList() {
     });
 
     holidaysList.appendChild(holidayItem);
+
+    // Apply marquee if text is too long
+    const titleP = holidayItem.querySelector('.event-title');
+    if (titleP && titleP.scrollWidth > titleP.clientWidth) {
+      titleP.innerHTML = `<marquee scrollamount="4" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">${holiday.name}</marquee>`;
+      titleP.classList.remove('truncate');
+      titleP.classList.add('overflow-hidden', 'whitespace-nowrap');
+    }
   });
 }
 
@@ -726,7 +734,7 @@ function updateImportantDaysList() {
           <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">${dayName} ${pasaran}</span>
           <i data-lucide="star" class="w-3 h-3 text-indigo-400 fill-indigo-400"></i>
         </div>
-        <p class="text-sm font-semibold text-slate-800 dark:text-white truncate mt-0.5">${important.name}</p>
+        <p class="event-title text-sm font-semibold text-slate-800 dark:text-white truncate mt-0.5">${important.name}</p>
       </div>
     `;
 
@@ -736,6 +744,14 @@ function updateImportantDaysList() {
     });
 
     importantList.appendChild(importantItem);
+
+    // Apply marquee if text is too long
+    const titleP = importantItem.querySelector('.event-title');
+    if (titleP && titleP.scrollWidth > titleP.clientWidth) {
+      titleP.innerHTML = `<marquee scrollamount="4" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">${important.name}</marquee>`;
+      titleP.classList.remove('truncate');
+      titleP.classList.add('overflow-hidden', 'whitespace-nowrap');
+    }
   });
 }
 
